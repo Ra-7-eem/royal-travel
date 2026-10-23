@@ -1,0 +1,14 @@
+# Temporary and reference folders
+temp/
+temp*/
+temp1/
+temp2/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and Editor files
+.vscode/
+.idea/

@@ -1,0 +1,754 @@
+/* ==========================================================================
+   ROYAL TRAVEL & TOURISM (رويال للسياحة والسفر)
+   FAQ & Destination Guide Page Styling (صفحة الأسئلة الشائعة)
+   ========================================================================== */
+
+:root {
+  --font-primary: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-secondary: 'Tajawal', sans-serif;
+
+  /* Colors */
+  --bg-canvas: #f4f3ef;
+  --bg-card-white: #ffffff;
+  --navy-darkest: #070e17;
+  --navy-dark: #0a1420;
+  --navy-card: #0d1824;
+  --navy-accent: #132234;
+  
+  --gold-primary: #dfb46e;
+  --gold-light: #f5d49a;
+  --gold-dark: #b88b42;
+  --gold-glow: rgba(223, 180, 110, 0.35);
+
+  --text-white: #ffffff;
+  --text-muted: rgba(235, 242, 252, 0.82);
+  --text-dim: rgba(255, 255, 255, 0.6);
+  --text-dark: #121a24;
+  --text-dark-muted: #536273;
+
+  /* Border Radii */
+  --radius-hero: 26px;
+  --radius-card-container: 26px;
+  --radius-card: 20px;
+  --radius-pill: 9999px;
+  --radius-item: 14px;
+
+  /* Shadows */
+  --shadow-container: 0 12px 40px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.22);
+  --shadow-gold: 0 6px 24px rgba(223, 180, 110, 0.32);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-canvas);
+  color: var(--text-dark);
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Outer Container Frame */
+.page-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 18px 22px 36px;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 12px 14px 28px;
+  }
+}
+
+/* ==========================================================================
+   TOP BAR / NAVIGATION
+   ========================================================================== */
+.faq-top-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 36px;
+}
+
+@media (max-width: 768px) {
+  .faq-top-navbar {
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  .faq-top-navbar {
+    padding: 14px 14px;
+  }
+  .brand-name {
+    font-size: 1.08rem;
+  }
+  .brand-en {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+  .nav-actions-wrap {
+    gap: 6px;
+  }
+  .btn-nav-pill {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .btn-nav-pill svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.brand-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.brand-en {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+.nav-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 20, 30, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-nav-pill:hover {
+  background: var(--gold-primary);
+  border-color: var(--gold-primary);
+  color: #0b141e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.btn-nav-pill.btn-back-countries {
+  background: rgba(223, 180, 110, 0.2);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.btn-nav-pill.btn-back-countries:hover {
+  background: var(--gold-primary);
+  color: #0b141e;
+}
+
+/* ==========================================================================
+   HERO SECTIONS
+   ========================================================================== */
+.faq-hero {
+  position: relative;
+  min-height: 380px;
+  border-radius: var(--radius-hero);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 24px 60px;
+  box-shadow: var(--shadow-container);
+  transition: background-image 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .faq-hero {
+    min-height: 320px;
+    padding: 80px 18px 45px;
+    border-radius: 20px;
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 14, 23, 0.72) 0%,
+    rgba(9, 18, 29, 0.65) 50%,
+    rgba(7, 14, 23, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  transition: transform 1.2s ease, filter 0.5s ease;
+  z-index: 0;
+}
+
+.faq-hero:hover .hero-bg-layer {
+  transform: scale(1.05);
+}
+
+.hero-inner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero-main-heading {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .hero-main-heading {
+    font-size: 2.3rem;
+  }
+}
+
+.hero-country-badge {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--gold-primary);
+  font-weight: 800;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 14px var(--gold-glow);
+}
+
+@media (max-width: 768px) {
+  .hero-country-badge {
+    font-size: 1.85rem;
+  }
+}
+
+.hero-subheading {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hero-subheading {
+    font-size: 0.96rem;
+  }
+}
+
+/* ==========================================================================
+   MAIN WHITE CONTENT CONTAINER
+   ========================================================================== */
+.faq-content-container {
+  background: var(--bg-card-white);
+  border-radius: var(--radius-card-container);
+  padding: 38px;
+  margin-top: 24px;
+  box-shadow: var(--shadow-container);
+  transition: all var(--transition-smooth);
+}
+
+@media (max-width: 768px) {
+  .faq-content-container {
+    padding: 20px 14px;
+    border-radius: 20px;
+    margin-top: 16px;
+  }
+}
+
+/* ==========================================================================
+   VIEW 1: COUNTRIES CARDS GRID (4 Columns x 2 Rows)
+   ========================================================================== */
+.destinations-grid-view {
+  display: block;
+}
+
+.destinations-grid-view.hidden {
+  display: none;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+@media (max-width: 1150px) {
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .countries-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Single Destination Card */
+.dest-card-box {
+  background: var(--navy-card);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.dest-card-box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.dest-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.9;
+  overflow: hidden;
+  background: #0b141e;
+}
+
+.dest-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform var(--transition-smooth);
+  display: block;
+}
+
+/* Individual Focus Adjustments for Portrait Photos */
+.card-img-dubai {
+  object-position: center 10%;
+}
+
+.card-img-azerbaijan {
+  object-position: center 25%;
+}
+
+.card-img-georgia {
+  object-position: center 35%;
+}
+
+.dest-card-box:hover .dest-card-img {
+  transform: scale(1.05);
+}
+
+.dest-card-overlay-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0) 65%,
+    rgba(11, 20, 30, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* Card Body (Dark navy lower section) */
+.dest-card-body {
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  justify-content: space-between;
+  background: #0b141e;
+}
+
+.dest-card-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 5px;
+  letter-spacing: -0.2px;
+}
+
+.dest-card-sub {
+  font-size: 0.88rem;
+  color: rgba(220, 230, 242, 0.72);
+  font-weight: 400;
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+
+/* Card Action Button: "الأسئلة الشائعة ←" */
+.btn-card-faq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-white);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.dest-card-box:hover .btn-card-faq,
+.dest-card-box:focus-within .btn-card-faq {
+  background: var(--gold-primary);
+  border-color: var(--gold-primary);
+  color: #0b141e;
+  box-shadow: 0 4px 16px rgba(223, 180, 110, 0.35);
+}
+
+.card-arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: inherit;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.dest-card-box:hover .card-arrow-circle,
+.dest-card-box:focus-within .card-arrow-circle {
+  background: rgba(0, 0, 0, 0.22);
+  transform: translateX(-3px);
+}
+
+
+
+
+
+/* ==========================================================================
+   GENERAL ROYAL FAQ ACCORDION (أسئلة عامة عن رويال)
+   ========================================================================== */
+.general-faq-section {
+  margin-top: 40px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.section-centered-title {
+  text-align: center;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 26px;
+  letter-spacing: -0.3px;
+}
+
+@media (max-width: 768px) {
+  .section-centered-title {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Accordion Item Card */
+.faq-acc-card {
+  border: 1px solid #e5e9f0;
+  border-radius: var(--radius-item);
+  background: #ffffff;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.faq-acc-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.faq-acc-card.open {
+  border-color: var(--gold-primary);
+  box-shadow: 0 6px 20px rgba(223, 180, 110, 0.15);
+}
+
+/* Accordion Header / Button */
+.faq-acc-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  text-align: right;
+  gap: 16px;
+}
+
+.faq-acc-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-grow: 1;
+}
+
+/* Square Dark Icon for Specific Country Questions */
+.faq-square-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 10px;
+  background: var(--navy-card);
+  color: var(--gold-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.faq-square-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.faq-acc-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.45;
+}
+
+@media (max-width: 600px) {
+  .faq-acc-title {
+    font-size: 0.95rem;
+  }
+}
+
+.faq-acc-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  color: #94a3b8;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.faq-acc-card.open .faq-acc-chevron {
+  transform: rotate(180deg);
+  color: var(--gold-dark);
+}
+
+/* Accordion Body */
+.faq-acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 20px;
+}
+
+.faq-acc-card.open .faq-acc-body {
+  max-height: 800px;
+  padding: 0 20px 20px;
+}
+
+.faq-acc-content-box {
+  background: #fbf9f5;
+  border-radius: 10px;
+  padding: 16px 20px;
+  border: 1px solid #f1eae0;
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .faq-acc-content-box {
+    padding: 14px 16px;
+    font-size: 0.88rem;
+  }
+}
+
+/* ==========================================================================
+   VIEW 2: COUNTRY SPECIFIC FAQ VIEW
+   ========================================================================== */
+.country-detail-view {
+  display: block;
+}
+
+.country-detail-view.hidden {
+  display: none;
+}
+
+.country-faq-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.btn-start-planning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 34px;
+  border-radius: var(--radius-pill);
+  background: var(--navy-card);
+  color: var(--text-white);
+  font-size: 0.98rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(10, 20, 30, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.btn-start-planning:hover {
+  background: #152436;
+  color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 20, 30, 0.35);
+}
+
+.btn-other-destinations {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 32px;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 0.98rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-other-destinations:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-dark);
+  background: #fdfbf7;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FOOTER (Exact layout from screenshots)
+   ========================================================================== */
+.faq-footer {
+  margin-top: 36px;
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 600px) {
+  .faq-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+.footer-brand {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.footer-slogan {
+  font-size: 0.92rem;
+  color: #728090;
+  font-weight: 500;
+}

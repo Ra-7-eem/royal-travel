@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>رويال للسياحة والسفر | رحلات سياحية فاخرة وتجارب استثنائية</title>
+  <meta name="description" content="رويال للسياحة والسفر - نصنع من السفر تجربة استثنائية. رحلات سياحية فاخرة، تصميم رحلتك الخاصة، باقات وعروض حصرية تلبي أعلى معايير الفخامة والراحة.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Wrapper with Soft Luxury Framing -->
+  <div class="page-container">
+
+    <!-- HERO SECTION CONTAINER -->
+    <header class="hero-section" id="home">
+      <!-- Background Slides -->
+      <div class="hero-background-wrapper">
+        <div class="hero-slide active" data-slide="1">
+          <div class="slide-overlay"></div>
+          <div class="slide-image slide-1"></div>
+        </div>
+        <div class="hero-slide" data-slide="2">
+          <div class="slide-overlay"></div>
+          <div class="slide-image slide-2"></div>
+        </div>
+        <div class="hero-slide" data-slide="3">
+          <div class="slide-overlay"></div>
+          <div class="slide-image slide-3"></div>
+        </div>
+      </div>
+
+      <!-- Hero Header / Navbar -->
+      <nav class="navbar" aria-label="القائمة الرئيسية">
+        <div class="nav-right">
+          <a href="#home" class="logo-link">
+            <span class="logo-text">رويال للسياحة والسفر</span>
+          </a>
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="#home" class="nav-link active">الرئيسية</a></li>
+          <li class="nav-item"><a href="#custom-trip" class="nav-link" id="navTripLink">رحلتك الخاصة</a></li>
+          <li class="nav-item"><a href="#destinations" class="nav-link" id="navDestLink">الوجهات</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link" id="navFaqLink">الأسئلة الشائعة</a></li>
+          <li class="nav-item nav-item-cta">
+            <button type="button" class="btn-planning btn-planning-menu" id="openPlannerBtnMobile" aria-label="ابدأ التخطيط لرحلتك">
+              <span>ابدأ التخطيط</span>
+              <svg class="planning-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+          </li>
+        </ul>
+
+        <div class="nav-left">
+          <button type="button" class="btn-planning" id="openPlannerBtn" aria-label="ابدأ التخطيط لرحلتك">
+            <span>ابدأ التخطيط</span>
+            <svg class="planning-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </button>
+          <!-- Mobile Hamburger Button -->
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Hero Main Content -->
+      <div class="hero-content-wrapper">
+        <div class="hero-tagline-wrap">
+          <span class="tagline-text">سفر يليق بك، من أول تفصيل</span>
+          <span class="tagline-line"></span>
+        </div>
+
+        <div class="hero-headings" id="heroTitles">
+          <h1 class="hero-main-title">
+            <span class="title-white title-brand">رويال للسياحة والسفر</span>
+            <span class="title-gold title-accent">نصنع من السفر تجربة</span>
+            <span class="title-white title-sub">استثنائية</span>
+          </h1>
+        </div>
+
+        <p class="hero-description" id="heroDesc">
+          في رويال للسياحة والسفر نؤمن أن السفر ليس مجرد وجهة، بل تجربة تبدأ من اللحظة التي تقرر فيها الانطلاق. نختار لك الوجهات بعناية، ونصمم رحلتك وفق احتياجاتك، لنمنحك تجربة تجمع بين الراحة، الفخامة، والدقة في كل التفاصيل. من الرحلات السياحية الفاخرة والعطلات الخاصة، إلى حجوزات الطيران والفنادق وتنظيم برامج السفر المتكاملة، نرافقك بخبرة واهتمام يليقان بك. وجهتك علينا... وتجربتك رويال.
+        </p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn-hero-primary" id="heroPrimaryBtn">
+            <span>اكتشف رحلتك الخاصة</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+
+          <button type="button" class="btn-hero-outline" id="heroSecondaryBtn">
+            <span>تصفح الوجهات</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Footer Controls (RTL: Tag on Right, Counter on Left) -->
+      <div class="hero-bottom-bar">
+        <div class="hero-bottom-tag">
+          <span class="bottom-tag-text">اكتشف عالماً من التفاصيل</span>
+          <span class="bottom-tag-line"></span>
+        </div>
+
+        <div class="slider-counter" id="sliderCounter" role="button" tabindex="0" title="اضغط للانتقال إلى الشريحة التالية">
+          <span class="counter-current" id="counterCurrent">01</span>
+          <span class="counter-separator">—</span>
+          <span class="counter-total">03</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 2: THE 3 BANNER CARDS CONTAINER -->
+    <main class="cards-section-container" id="destinations">
+      <div class="cards-grid">
+
+        <!-- Banner Card 1: صمم رحلتك الخاصة -->
+        <article class="banner-card banner-canyon" id="custom-trip" tabindex="0">
+          <div class="card-bg-overlay"></div>
+          <div class="card-bg-image canyon-img"></div>
+          
+          <div class="card-content">
+            <!-- Right side: Text & Buttons -->
+            <div class="card-info">
+              <div class="card-title-row">
+                <h2 class="card-title">صمّم رحلتك الخاصة</h2>
+                <div class="circle-arrow-btn" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <p class="card-desc">اختر وجهتك، وخصص تفاصيل رحلتك كما تحب.</p>
+
+              <button type="button" class="card-action-btn" id="openTripModalBtn">
+                <span>اكتشف المزيد</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Left side: Gold framed icon -->
+            <div class="card-icon-box">
+              <svg class="gold-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#dfb46e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Banner Card 2: باقات وعروض -->
+        <article class="banner-card banner-ocean" id="cardPackages" tabindex="0">
+          <div class="card-bg-overlay"></div>
+          <div class="card-bg-image ocean-img"></div>
+          
+          <div class="card-content">
+            <!-- Right side: Text & Buttons -->
+            <div class="card-info">
+              <div class="card-title-row">
+                <h2 class="card-title">باقات وعروض</h2>
+                <div class="circle-arrow-btn" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <p class="card-desc">اكتشف أفضل الباقات والعروض الحصرية لرحلاتك حول العالم.</p>
+
+              <button type="button" class="card-action-btn" id="openOffersModalBtn">
+                <span>اكتشف المزيد</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Left side: Gold framed icon -->
+            <div class="card-icon-box">
+              <svg class="gold-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#dfb46e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="5" x2="5" y2="19"></line>
+                <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                <circle cx="17.5" cy="17.5" r="2.5"></circle>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Banner Card 3: أسئلة شائعة -->
+        <article class="banner-card banner-mosque" id="cardFaq" tabindex="0">
+          <div class="card-bg-overlay"></div>
+          <div class="card-bg-image mosque-img"></div>
+          
+          <div class="card-content">
+            <!-- Right side: Text & Buttons -->
+            <div class="card-info">
+              <div class="card-title-row">
+                <h2 class="card-title">أسئلة شائعة</h2>
+                <div class="circle-arrow-btn" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <p class="card-desc">كل ما تحتاج إلى معرفته عن رحلتك، في مكان واحد.</p>
+
+              <a href="faq.html" class="card-action-btn" id="openFaqModalBtn">
+                <span>اكتشف المزيد</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Left side: Gold framed icon -->
+            <div class="card-icon-box">
+              <svg class="gold-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#dfb46e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-right">
+          <span class="footer-logo">رويال للسياحة والسفر</span>
+        </div>
+        <div class="footer-left">
+          <ul class="footer-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#custom-trip" class="footer-link-trip">رحلتك الخاصة</a></li>
+            <li><a href="#destinations" class="footer-link-dest">الوجهات</a></li>
+            <li><a href="faq.html" class="footer-link-faq">الأسئلة الشائعة</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© جميع الحقوق محفوظة لـ رويال للسياحة والسفر 2026 • تجربة سفر ملكية فاخرة</p>
+      </div>
+    </footer>
+
+  </div> <!-- End page-container -->
+
+
+
+  <!-- FLOATING CONCIERGE WHATSAPP BUTTON -->
+  <a href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B1%D9%88%D9%8A%D8%A7%D9%84%20%D9%84%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%81%D8%B1" 
+     class="floating-whatsapp" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="تواصل مع مستشار السفر الملكي عبر واتساب">
+    <div class="whatsapp-pulse"></div>
+    <svg class="whatsapp-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.23 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
+    </svg>
+    <span class="whatsapp-label">تواصل معنا</span>
+  </a>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
