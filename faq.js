@@ -472,11 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Country Questions
     renderCountryQuestions(data);
 
-    // Update WhatsApp planning button link with destination context
     if (btnStartPlanning) {
-      const msg = encodeURIComponent(`مرحباً رويال للسياحة والسفر، أود الاستفسار وتصميم رحلة خاصة إلى ${data.nameAr}.`);
-      btnStartPlanning.onclick = () => {
-        window.open(`https://wa.me/?text=${msg}`, '_blank');
+      btnStartPlanning.onclick = (e) => {
+        e.preventDefault();
       };
     }
 

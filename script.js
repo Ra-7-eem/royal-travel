@@ -253,8 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
 💬 نص الاستفسار:
 ${messageVal}`;
 
-      // Open in WhatsApp
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(formattedMessage)}`;
+      // Open in WhatsApp with official business phone number
+      const whatsappUrl = `https://wa.me/972502400674?text=${encodeURIComponent(formattedMessage)}`;
       window.open(whatsappUrl, '_blank');
 
       // Visual feedback

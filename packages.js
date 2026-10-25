@@ -5,27 +5,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Make each destination card clickable as a whole
+  // أزرار وكروت استعراض العروض خاملة حالياً ولا تقوم بأي تحويل للواتساب للديمو
   document.querySelectorAll('.dest-card-box').forEach(card => {
     card.addEventListener('click', (e) => {
-      // If the user didn't click directly on an anchor link inside, trigger the link
-      if (!e.target.closest('a')) {
-        const link = card.querySelector('a.btn-card-faq');
-        if (link && link.href) {
-          window.open(link.href, link.target || '_self');
-        }
-      }
+      // لا يقوم بأي تحويل لحين اعتماد تفاصيل وتصميم العروض
     });
+  });
 
-    // Accessible keyboard Enter / Space navigation
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const link = card.querySelector('a.btn-card-faq');
-        if (link && link.href) {
-          window.open(link.href, link.target || '_self');
-        }
-      }
+  document.querySelectorAll('.btn-card-faq').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      // خامل للديمو
     });
   });
 
