@@ -177,12 +177,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // WhatsApp concierge actions for banner cards
+  // زر كرت "صمّم رحلتك الخاصة" (خامل حالياً ولا يحول على الواتساب لحين استكمال تصميمه للديمو)
   const openTripModalBtn = document.getElementById('openTripModalBtn');
   if (openTripModalBtn) {
-    openTripModalBtn.addEventListener('click', () => {
-      const msg = encodeURIComponent("مرحباً رويال للسياحة والسفر، أود الاستفسار وتصميم رحلة سياحية خاصة بي.");
-      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    openTripModalBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // لا يقوم بأي تحويل لحين اعتماد وتصميم باقي التجربة للديمو
     });
   }
 
@@ -206,4 +206,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // 4. SUPPORT & CONTACT WHATSAPP FORM
+  // ==========================================
+  const supportForm = document.getElementById('supportWhatsappForm');
+  const supportName = document.getElementById('supportName');
+  const supportPhone = document.getElementById('supportPhone');
+  const supportMessage = document.getElementById('supportMessage');
+  const btnSubmitSupport = document.getElementById('btnSubmitSupport');
+
+  if (supportForm) {
+    supportForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameVal = supportName ? supportName.value.trim() : '';
+      const phoneVal = supportPhone ? supportPhone.value.trim() : '';
+      const messageVal = supportMessage ? supportMessage.value.trim() : '';
+
+      // Validation
+      if (!nameVal) {
+        if (supportName) {
+          supportName.focus();
+          supportName.style.borderColor = '#e53e3e';
+          setTimeout(() => { supportName.style.borderColor = ''; }, 2500);
+        }
+        return;
+      }
+
+      if (!messageVal) {
+        if (supportMessage) {
+          supportMessage.focus();
+          supportMessage.style.borderColor = '#e53e3e';
+          setTimeout(() => { supportMessage.style.borderColor = ''; }, 2500);
+        }
+        return;
+      }
+
+      // Format clean luxury message
+      const formattedMessage = 
+`مرحباً رويال للسياحة والسفر،
+لدي استفسار عبر الموقع الإلكتروني:
+
+👤 الاسم: ${nameVal}
+📱 رقم التواصل: ${phoneVal || 'غير محدد'}
+
+💬 نص الاستفسار:
+${messageVal}`;
+
+      // Open in WhatsApp
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(formattedMessage)}`;
+      window.open(whatsappUrl, '_blank');
+
+      // Visual feedback
+      if (btnSubmitSupport) {
+        const originalContent = btnSubmitSupport.innerHTML;
+        btnSubmitSupport.innerHTML = `<span>تم التحويل إلى واتساب ✓</span>`;
+        btnSubmitSupport.style.background = '#25D366';
+        btnSubmitSupport.style.color = '#ffffff';
+
+        setTimeout(() => {
+          btnSubmitSupport.innerHTML = originalContent;
+          btnSubmitSupport.style.background = '';
+          btnSubmitSupport.style.color = '';
+        }, 3000);
+      }
+    });
+  }
+
 });
+
