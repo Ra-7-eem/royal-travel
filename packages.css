@@ -1,0 +1,532 @@
+/* ==========================================================================
+   ROYAL TRAVEL & TOURISM (رويال للسياحة والسفر)
+   Packages & Offers Page Stylesheet (packages.css)
+   ========================================================================== */
+
+/* --- ROOT VARIABLES --- */
+:root {
+  --gold-primary: #dfb46e;
+  --gold-hover: #c59b4e;
+  --gold-light: #f5eedb;
+  --gold-gradient: linear-gradient(135deg, #dfb46e 0%, #c59b4e 100%);
+  --gold-border: rgba(223, 180, 110, 0.4);
+  --gold-glow: rgba(223, 180, 110, 0.35);
+
+  --bg-page: #eff2f6;
+  --bg-card: #ffffff;
+  --navy-card: #0b141e;
+  --bg-hero-overlay: linear-gradient(
+    180deg,
+    rgba(7, 14, 23, 0.72) 0%,
+    rgba(9, 18, 29, 0.65) 50%,
+    rgba(7, 14, 23, 0.92) 100%
+  );
+
+  --text-dark: #111827;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-white: #ffffff;
+
+  --border-light: #e5e9f0;
+  --border-subtle: #f1f5f9;
+  
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.3);
+
+  --radius-page: 26px;
+  --radius-card: 18px;
+  --radius-pill: 9999px;
+
+  --font-main: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-fast: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- RESET & GLOBAL STYLES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+  padding: 24px 18px 48px;
+  overflow-x: hidden;
+}
+
+/* --- MAIN PAGE CONTAINER --- */
+.page-container {
+  max-width: 1340px;
+  margin: 0 auto;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-page);
+  box-shadow: 0 12px 48px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   HERO SECTION & NAVBAR
+   ========================================================================== */
+.packages-hero {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px 36px 48px;
+  background-color: #0b1a2e;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-hero-overlay), url('assets/faq/faq-hero.avif');
+  background-size: cover;
+  background-position: center 38%;
+  transform: scale(1.02);
+  transition: transform 6s ease-out;
+  z-index: 1;
+}
+
+.packages-hero:hover .hero-bg-layer {
+  transform: scale(1.05);
+}
+
+/* Top Navbar */
+.packages-top-nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Brand Logo (Right side in RTL) */
+.brand-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  gap: 2px;
+}
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.3px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+/* Nav Actions (Left side in RTL) */
+.nav-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 18px 8px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(11, 23, 40, 0.48);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--text-white);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-nav-pill svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn-nav-pill:hover {
+  background: var(--gold-primary);
+  border-color: var(--gold-primary);
+  color: #0b141e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-nav-pill:hover svg {
+  transform: translateX(3px);
+}
+
+/* Centered Hero Content */
+.hero-inner-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 820px;
+  margin: 30px auto 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-tag-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hero-tag-line {
+  width: 24px;
+  height: 1px;
+  background-color: var(--gold-primary);
+  opacity: 0.8;
+}
+
+.hero-tag {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+.hero-main-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 12px;
+  line-height: 1.25;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   PACKAGES MAIN CONTENT & DESTINATION CARDS GRID (Exact match with FAQ)
+   ========================================================================== */
+.packages-main-content {
+  background-color: var(--bg-card);
+  padding: 42px 34px 50px;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1150px) {
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .countries-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Single Destination Card (Exact same as FAQ) */
+.dest-card-box {
+  background: var(--navy-card);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.dest-card-box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.dest-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.9;
+  overflow: hidden;
+  background: #0b141e;
+}
+
+.dest-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform var(--transition-smooth);
+  display: block;
+}
+
+/* Focus adjustments for portrait photos */
+.card-img-dubai {
+  object-position: center 10%;
+}
+
+.card-img-azerbaijan {
+  object-position: center 25%;
+}
+
+.card-img-georgia {
+  object-position: center 35%;
+}
+
+.dest-card-box:hover .dest-card-img {
+  transform: scale(1.05);
+}
+
+.dest-card-overlay-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0) 65%,
+    rgba(11, 20, 30, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* Card Body (Dark navy lower section) */
+.dest-card-body {
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  justify-content: space-between;
+  background: #0b141e;
+}
+
+.dest-card-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 5px;
+  letter-spacing: -0.2px;
+}
+
+.dest-card-sub {
+  font-size: 0.88rem;
+  color: rgba(220, 230, 242, 0.72);
+  font-weight: 400;
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+
+/* Card Action Button: "استعراض العروض" */
+.btn-card-faq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-white);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.dest-card-box:hover .btn-card-faq,
+.dest-card-box:focus-within .btn-card-faq {
+  background: var(--gold-primary);
+  border-color: var(--gold-primary);
+  color: #0b141e;
+  box-shadow: 0 4px 16px rgba(223, 180, 110, 0.35);
+}
+
+.card-arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: inherit;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.dest-card-box:hover .card-arrow-circle {
+  background: #0b141e;
+  color: var(--gold-primary);
+}
+
+/* ==========================================================================
+   FOOTER BAR
+   ========================================================================== */
+.packages-bottom-bar {
+  border-top: 1px solid var(--border-subtle);
+  padding: 24px 40px 28px;
+  background-color: var(--bg-card);
+}
+
+.bottom-bar-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bar-brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.bar-slogan {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   FLOATING CONCIERGE WHATSAPP BUTTON
+   ========================================================================== */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px 12px 16px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+  transition: all var(--transition-smooth);
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  color: #ffffff;
+}
+
+.whatsapp-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.whatsapp-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  body {
+    padding: 16px 12px 36px;
+  }
+  .packages-hero {
+    min-height: 350px;
+    padding: 22px 24px 38px;
+  }
+  .hero-main-title {
+    font-size: 2.3rem;
+  }
+  .packages-main-content {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 8px 6px 24px;
+  }
+  .page-container {
+    border-radius: 18px;
+  }
+  .packages-hero {
+    min-height: 320px;
+    padding: 20px 18px 32px;
+    border-radius: 18px 18px 0 0;
+  }
+  .brand-name {
+    font-size: 1.15rem;
+  }
+  .btn-nav-pill {
+    padding: 6px 14px 6px 10px;
+    font-size: 0.82rem;
+  }
+  .hero-main-title {
+    font-size: 1.85rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .packages-main-content {
+    padding: 24px 14px;
+  }
+  .bottom-bar-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .floating-whatsapp {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 14px;
+  }
+  .whatsapp-label {
+    display: none;
+  }
+}

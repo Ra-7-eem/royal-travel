@@ -186,11 +186,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const openOffersModalBtn = document.getElementById('openOffersModalBtn');
-  if (openOffersModalBtn) {
-    openOffersModalBtn.addEventListener('click', () => {
-      const msg = encodeURIComponent("مرحباً رويال للسياحة والسفر، أود الاستفسار عن أحدث الباقات والعروض السياحية المتوفرة.");
-      window.open(`https://wa.me/?text=${msg}`, '_blank');
+  // Card 2 Navigation to Packages & Offers
+  const cardPackages = document.getElementById('cardPackages');
+  if (cardPackages) {
+    cardPackages.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) {
+        window.location.href = 'packages.html';
+      }
     });
   }
 
