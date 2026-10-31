@@ -4,21 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>باقات وعروض السفر الفاخرة | رويال للسياحة والسفر</title>
-  <meta name="description" content="اكتشف أجمل الرحلات مع رويال للسياحة والسفر. باقات وعروض حصرية لأفضل الوجهات السياحية العالمية: بالي، تايلند، موريشيوس، زنجبار، دبي، سريلانكا، أذربيجان، وجورجيا.">
+  <meta name="description" content="اكتشف أجمل الرحلات مع رويال للسياحة والسفر. باقات وعروض حصرية: جورجيا، موريشيوس، وزنجبار بتفاصيل واضحة وخدمات VIP متكاملة.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="packages.css?v=1.2">
+  <link rel="stylesheet" href="packages.css?v=2.2">
 </head>
-<body>
+<body class="packages-dark-theme">
 
   <!-- ==================== MAIN PAGE CONTAINER ==================== -->
   <div class="page-container">
 
-    <!-- ==================== HERO SECTION & NAVBAR ==================== -->
+    <!-- ==================== HERO SECTION & TOP NAVBAR ==================== -->
     <header class="packages-hero" id="packagesHero">
-      <!-- Background Luxury Visual Layer -->
+      <!-- Panoramic Mountain Background Layer -->
       <div class="hero-bg-layer" id="heroBgLayer"></div>
+      <div class="hero-gradient-overlay"></div>
 
       <!-- Top Navbar Inside Hero -->
       <nav class="packages-top-nav" aria-label="شريط التنقل العلوي">
@@ -28,11 +29,11 @@
           <span class="brand-sub">ROYAL TRAVEL</span>
         </a>
 
-        <!-- Action: Return to Home (Left side in RTL) -->
+        <!-- Return to Home Button (Left side in RTL) -->
         <div class="nav-actions-wrap">
           <a href="index.html" class="btn-nav-pill btn-back-home" title="العودة للصفحة الرئيسية">
             <span>العودة للرئيسية</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -42,215 +43,237 @@
 
       <!-- Centered Hero Titles -->
       <div class="hero-inner-content">
-        <div class="hero-tag-wrap">
-          <span class="hero-tag-line"></span>
-          <span class="hero-tag">ROYAL TRAVEL</span>
-          <span class="hero-tag-line"></span>
-        </div>
+        <span class="hero-top-tag">باقات وعروض</span>
         <h1 class="hero-main-title">اكتشف أجمل الرحلات</h1>
-        <p class="hero-subtitle">عروض مختارة لرحلات استثنائية - نرتّب تفاصيلها لك، على إيقاعك.</p>
+        <p class="hero-subtitle">وجهات جاهزة بتفاصيل واضحة، اختر رحلتك واحجز بخطوة واحدة.</p>
       </div>
     </header>
 
-    <!-- ==================== MAIN PACKAGES & OFFERS SECTION ==================== -->
+    <!-- ==================== HIGHLIGHTS BAR (4 Circular Features) ==================== -->
+    <section class="features-bar-section" aria-label="مميزات رويال للسياحة">
+      <div class="features-bar-grid">
+
+        <!-- 1. دعم فني 24 ساعة (Rightmost in RTL) -->
+        <div class="feature-item">
+          <div class="feature-icon-circle">
+            <!-- 24/7 Support Headset SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <span class="feature-title">دعم فني 24 ساعة</span>
+        </div>
+
+        <!-- 2. طيران مريح ومباشر -->
+        <div class="feature-item">
+          <div class="feature-icon-circle">
+            <!-- Direct Flight Airplane SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+            </svg>
+          </div>
+          <span class="feature-title">طيران مريح ومباشر</span>
+        </div>
+
+        <!-- 3. فنادق مختارة بعناية -->
+        <div class="feature-item">
+          <div class="feature-icon-circle">
+            <!-- Selected Hotel Building SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+              <path d="M9 22v-4h6v4"></path>
+              <path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"></path>
+            </svg>
+          </div>
+          <span class="feature-title">فنادق مختارة بعناية</span>
+        </div>
+
+        <!-- 4. تنقلات خاصة ومريحة (Leftmost in RTL) -->
+        <div class="feature-item">
+          <div class="feature-icon-circle">
+            <!-- VIP Car Transport SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"></path>
+              <circle cx="7" cy="17" r="2"></circle>
+              <path d="M9 17h6"></path>
+              <circle cx="17" cy="17" r="2"></circle>
+            </svg>
+          </div>
+          <span class="feature-title">تنقلات خاصة ومريحة</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== OFFERS SECTION ==================== -->
     <main class="packages-main-content" id="packagesContent">
 
-      <!-- The 8 Destinations Cards Grid (Same as FAQ section) -->
-      <div class="countries-grid">
+      <!-- Section Header Row -->
+      <div class="offers-header-row">
+        <h2 class="offers-main-heading">العروض الحالية</h2>
+        <span class="offers-counter">3 عرض متاح</span>
+      </div>
 
-        <!-- 1. بالي -->
-        <article class="dest-card-box" data-dest="bali" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Bali.jpeg" alt="بالي" class="dest-card-img" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
+      <!-- The 3 Current Offer Cards Grid -->
+      <div class="offers-cards-grid">
+
+        <!-- 1. عرض باتومي، جورجيا (Right Card in RTL) -->
+        <article class="offer-card" data-package="batumi" tabindex="0">
+          <!-- Card Media Wrap -->
+          <div class="offer-card-media">
+            <img src="assets/faq/Georgia.jpeg" 
+                 alt="عرض باتومي، جورجيا" 
+                 class="offer-img" 
+                 loading="lazy">
+            <div class="offer-media-overlay"></div>
+            
+            <!-- Top Right Badge: جورجيا -->
+            <span class="badge-country badge-georgia">جورجيا</span>
+
+            <!-- Bottom Left Badge: رحلة مختارة -->
+            <span class="badge-featured">رحلة مختارة</span>
           </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">بالي</h2>
-              <p class="dest-card-sub">معابد وشواطئ وحقول أرز</p>
+
+          <!-- Card Content Body -->
+          <div class="offer-card-body">
+            <h3 class="offer-title">عرض باتومي، جورجيا</h3>
+            <p class="offer-dates">2.12.2026 — 7.12.2026 &nbsp;|&nbsp; 6 أيام / 5 ليالي</p>
+            
+            <div class="offer-hotel-wrap">
+              <span class="hotel-stars" aria-label="تقييم 5 نجوم">★★★★★</span>
+              <span class="hotel-name">Euphoria Hotel</span>
             </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض بالي">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
+
+            <button type="button" class="btn-cancel-terms" data-action="cancel-terms" data-package="batumi">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>شروط الإلغاء</span>
+            </button>
+          </div>
+
+          <!-- Card Footer Row -->
+          <div class="offer-card-footer">
+            <div class="price-block">
+              <span class="price-label">السعر للفرد</span>
+              <div class="price-val-wrap" dir="rtl">
+                <span class="currency-symbol">₪</span>
+                <span class="price-num">2000</span>
+              </div>
+            </div>
+            <button type="button" class="btn-offer-details" data-action="details" data-package="batumi">
+              التفاصيل
             </button>
           </div>
         </article>
 
-        <!-- 2. تايلند -->
-        <article class="dest-card-box" data-dest="thailand" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Thailand.jpeg" alt="تايلند" class="dest-card-img" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
+        <!-- 2. عرض موريشيوس (Middle Card) -->
+        <article class="offer-card" data-package="mauritius" tabindex="0">
+          <!-- Card Media Wrap -->
+          <div class="offer-card-media">
+            <img src="assets/faq/Mauritius.jpeg" 
+                 alt="عرض موريشيوس" 
+                 class="offer-img offer-img-mauritius" 
+                 loading="lazy">
+            <div class="offer-media-overlay"></div>
+            
+            <!-- Top Right Badge: موريشيوس (Cyan / Blue) -->
+            <span class="badge-country badge-mauritius">موريشيوس</span>
           </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">تايلند</h2>
-              <p class="dest-card-sub">جزر استوائية ومدن نابضة</p>
+
+          <!-- Card Content Body -->
+          <div class="offer-card-body">
+            <h3 class="offer-title">عرض موريشيوس</h3>
+            <p class="offer-dates">23.12.2026 — 30.12.2026 &nbsp;|&nbsp; 8 أيام / 7 ليالي</p>
+            
+            <div class="offer-hotel-wrap">
+              <span class="hotel-stars" aria-label="تقييم 5 نجوم">★★★★★</span>
+              <span class="hotel-name">Constance Belle Mare Plage</span>
             </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض تايلند">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
+
+            <button type="button" class="btn-cancel-terms" data-action="cancel-terms" data-package="mauritius">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>شروط الإلغاء</span>
+            </button>
+          </div>
+
+          <!-- Card Footer Row -->
+          <div class="offer-card-footer">
+            <div class="price-block">
+              <span class="price-label">السعر للفرد</span>
+              <div class="price-val-wrap" dir="rtl">
+                <span class="currency-symbol">₪</span>
+                <span class="price-num">10,000</span>
+              </div>
+            </div>
+            <button type="button" class="btn-offer-details" data-action="details" data-package="mauritius">
+              التفاصيل
             </button>
           </div>
         </article>
 
-        <!-- 3. موريشيوس -->
-        <article class="dest-card-box" data-dest="mauritius" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Mauritius.jpeg" alt="موريشيوس" class="dest-card-img" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
+        <!-- 3. عرض زنجبار (Left Card in RTL) -->
+        <article class="offer-card" data-package="zanzibar" tabindex="0">
+          <!-- Card Media Wrap -->
+          <div class="offer-card-media">
+            <img src="assets/faq/Zanzibar.jpeg" 
+                 alt="عرض زنجبار" 
+                 class="offer-img" 
+                 loading="lazy">
+            <div class="offer-media-overlay"></div>
+            
+            <!-- Top Right Badge: تنزانيا -->
+            <span class="badge-country badge-tanzania">تنزانيا</span>
           </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">موريشيوس</h2>
-              <p class="dest-card-sub">بحيرات فيروزية وهدوء راقٍ</p>
+
+          <!-- Card Content Body -->
+          <div class="offer-card-body">
+            <h3 class="offer-title">عرض زنجبار</h3>
+            <p class="offer-dates">30.12.2026 — 6.1.2027 &nbsp;|&nbsp; 8 أيام / 7 ليالي</p>
+            
+            <div class="offer-hotel-wrap">
+              <span class="hotel-stars" aria-label="تقييم 5 نجوم">★★★★★</span>
+              <span class="hotel-name">Matemwe Sands</span>
             </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض موريشيوس">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
+
+            <button type="button" class="btn-cancel-terms" data-action="cancel-terms" data-package="zanzibar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>شروط الإلغاء</span>
+            </button>
+          </div>
+
+          <!-- Card Footer Row -->
+          <div class="offer-card-footer">
+            <div class="price-block">
+              <span class="price-label">ابتداءً من</span>
+              <div class="price-val-wrap" dir="rtl">
+                <span class="currency-symbol">₪</span>
+                <span class="price-num">6,400</span>
+              </div>
+            </div>
+            <button type="button" class="btn-offer-details" data-action="details" data-package="zanzibar">
+              التفاصيل
             </button>
           </div>
         </article>
 
-        <!-- 4. زنجبار -->
-        <article class="dest-card-box" data-dest="zanzibar" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Zanzibar.jpeg" alt="زنجبار" class="dest-card-img" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
-          </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">زنجبار</h2>
-              <p class="dest-card-sub">ستون تاون وشواطئ البهارات</p>
-            </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض زنجبار">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </article>
+      </div> <!-- End offers-cards-grid -->
 
-        <!-- 5. دبي -->
-        <article class="dest-card-box" data-dest="dubai" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Dubai.jpeg" alt="دبي" class="dest-card-img card-img-dubai" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
-          </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">دبي</h2>
-              <p class="dest-card-sub">أفق حديث وصحراء ذهبية</p>
-            </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض دبي">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </article>
-
-        <!-- 6. سريلانكا -->
-        <article class="dest-card-box" data-dest="srilanka" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Sri Lanka.jpeg" alt="سريلانكا" class="dest-card-img" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
-          </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">سريلانكا</h2>
-              <p class="dest-card-sub">شاي ومنارات وتراث عريق</p>
-            </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض سريلانكا">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </article>
-
-        <!-- 7. أذربيجان -->
-        <article class="dest-card-box" data-dest="azerbaijan" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Azerbaijan.jpeg" alt="أذربيجان" class="dest-card-img card-img-azerbaijan" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
-          </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">أذربيجان</h2>
-              <p class="dest-card-sub">باكو الحديثة وجبال القوقاز</p>
-            </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض أذربيجان">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </article>
-
-        <!-- 8. جورجيا -->
-        <article class="dest-card-box" data-dest="georgia" tabindex="0">
-          <div class="dest-card-img-wrap">
-            <img src="assets/faq/Georgia.jpeg" alt="جورجيا" class="dest-card-img card-img-georgia" loading="lazy">
-            <div class="dest-card-overlay-grad"></div>
-          </div>
-          <div class="dest-card-body">
-            <div>
-              <h2 class="dest-card-title">جورجيا</h2>
-              <p class="dest-card-sub">أديرة جبلية وطبيعة خضراء</p>
-            </div>
-            <button type="button" 
-                    class="btn-card-faq" 
-                    aria-label="استعراض عروض جورجيا">
-              <span>استعراض العروض</span>
-              <span class="card-arrow-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </article>
-
-      </div> <!-- End countries-grid -->
+      <!-- Bottom Disclaimer Text -->
+      <p class="offers-disclaimer">
+        تفاصيل العرض كما هي موضحة في نافذة الرحلة. الأسعار والتواريخ قابلة للتغيير حسب التوفّر.
+      </p>
 
     </main>
 
@@ -264,19 +287,240 @@
 
   </div> <!-- End page-container -->
 
+  <!-- ==================== TRIP DETAILS POPUP MODAL (Matching Exact Accordion Design) ==================== -->
+  <div class="luxury-modal" id="tripDetailsModal" aria-hidden="true" role="dialog" aria-labelledby="modalTripTitle">
+    <div class="modal-backdrop" id="tripDetailsBackdrop"></div>
+    <div class="modal-card modal-card-accordion">
+
+      <!-- Modal Top Header -->
+      <div class="modal-header-accordion">
+        <div class="modal-header-top-row">
+          <span class="modal-royal-pick">مختارة من رويال</span>
+          <button type="button" class="btn-modal-close-acc" id="btnCloseTripDetails" aria-label="إغلاق النافذة">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <h3 class="modal-title-acc" id="modalTripTitle">عرض باتومي، جورجيا</h3>
+        <p class="modal-subtitle-acc" id="modalTripSubtitle">تفاصيل الباقة وصور الفندق</p>
+      </div>
+
+      <!-- Modal Scrollable Accordion Body -->
+      <div class="modal-accordion-scroll" id="modalAccordionScroll">
+
+        <!-- Accordion Item 1: التواريخ -->
+        <div class="acc-panel" id="accPanel1">
+          <button type="button" class="acc-header-btn" data-panel="1" aria-expanded="false">
+            <div class="acc-header-right">
+              <span class="acc-number-badge">1</span>
+              <span class="acc-header-title">التواريخ</span>
+            </div>
+            <span class="acc-chevron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="acc-content" id="accContent1">
+            <div class="acc-rows-list">
+              <div class="acc-info-row">
+                <span class="acc-info-label">اسم الوجهة</span>
+                <span class="acc-info-val" id="accDestName">باتومي، جورجيا</span>
+              </div>
+              <div class="acc-info-row">
+                <span class="acc-info-label">تاريخ الرحلة - من</span>
+                <span class="acc-info-val" id="accDateFrom">2.12.2026</span>
+              </div>
+              <div class="acc-info-row">
+                <span class="acc-info-label">تاريخ الرحلة - إلى</span>
+                <span class="acc-info-val" id="accDateTo">7.12.2026</span>
+              </div>
+              <div class="acc-info-row">
+                <span class="acc-info-label">عدد الأيام</span>
+                <span class="acc-info-val" id="accDaysCount">6</span>
+              </div>
+              <div class="acc-info-row">
+                <span class="acc-info-label">عدد الليالي</span>
+                <span class="acc-info-val" id="accNightsCount">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2: الفندق والإقامة -->
+        <div class="acc-panel" id="accPanel2">
+          <button type="button" class="acc-header-btn" data-panel="2" aria-expanded="false">
+            <div class="acc-header-right">
+              <span class="acc-number-badge">2</span>
+              <span class="acc-header-title">الفندق والإقامة</span>
+            </div>
+            <span class="acc-chevron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="acc-content" id="accContent2">
+            <div class="acc-rows-list">
+              <div class="acc-info-row">
+                <span class="acc-info-label">اسم الفندق</span>
+                <span class="acc-info-val" id="accHotelName">Euphoria Hotel</span>
+              </div>
+              <div class="acc-info-row">
+                <span class="acc-info-label">تقييم الفندق</span>
+                <span class="acc-info-val acc-stars-val" id="accHotelStars">★★★★★</span>
+              </div>
+              <div class="acc-info-row">
+                <span class="acc-info-label">نوع الغرفة</span>
+                <span class="acc-info-val" id="accRoomType">غرفة ستاندر</span>
+              </div>
+            </div>
+
+            <!-- Hotel Photos Carousel Slider -->
+            <div class="hotel-carousel-wrap">
+              <div class="hotel-carousel-frame">
+                <img src="assets/faq/Georgia.jpeg" alt="واجهة فندق إيفوريا باتومي" class="hotel-carousel-img" id="hotelCarouselImg">
+                <div class="carousel-overlay-grad"></div>
+                <button type="button" class="carousel-nav-btn btn-prev-slide" id="btnPrevHotelImg" aria-label="الصورة السابقة">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button type="button" class="carousel-nav-btn btn-next-slide" id="btnNextHotelImg" aria-label="الصورة التالية">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+                <span class="hotel-carousel-caption" id="hotelCarouselCaption">واجهة فندق إيفوريا باتومي</span>
+                <span class="hotel-carousel-counter" id="hotelCarouselCounter">1/4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 3: الطيران -->
+        <div class="acc-panel" id="accPanel3">
+          <button type="button" class="acc-header-btn" data-panel="3" aria-expanded="false">
+            <div class="acc-header-right">
+              <span class="acc-number-badge">3</span>
+              <span class="acc-header-title">الطيران</span>
+            </div>
+            <span class="acc-chevron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="acc-content" id="accContent3">
+            
+            <!-- Dynamic Flight Cards Container (2 cards for Batumi/Zanzibar, 4 cards for Mauritius) -->
+            <div id="accFlightsCardsContainer"></div>
+
+            <!-- Time badges quick summary (shown when package has summary pills) -->
+            <div class="flight-summary-pills" id="flightSummaryPills">
+              <span class="summary-pill" id="sumPillDept">ذهاب &nbsp; 07:45 - 12:00</span>
+              <span class="summary-pill" id="sumPillReturn">عودة &nbsp; 13:25 - 13:55</span>
+            </div>
+
+            <!-- Key-Value Flight Rows (Rendered dynamically per package) -->
+            <div class="acc-rows-list" id="accFlightRowsList"></div>
+
+            <!-- In-Flight Price Highlight Box -->
+            <div class="flight-price-highlight">
+              <span class="highlight-label" id="flightBoxLabel">السعر للفرد</span>
+              <div class="highlight-val-wrap">
+                <span class="highlight-price" id="flightBoxPrice">₪ 2000</span>
+                <span class="highlight-sub" id="flightBoxSub">للفرد الواحد بالغرفة الزوجية</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Accordion Item 4: خدمات أخرى -->
+        <div class="acc-panel" id="accPanel4">
+          <button type="button" class="acc-header-btn" data-panel="4" aria-expanded="false">
+            <div class="acc-header-right">
+              <span class="acc-number-badge">4</span>
+              <span class="acc-header-title">خدمات أخرى</span>
+            </div>
+            <span class="acc-chevron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="acc-content" id="accContent4">
+            <div id="accOtherServicesContainer">
+              <div class="acc-empty-text" id="accOtherServicesText">
+                لا توجد خدمات إضافية حالياً.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Fixed Bottom Bar -->
+      <div class="modal-fixed-bottom-bar">
+        <div class="modal-bottom-price-info">
+          <span class="modal-bottom-price-label" id="modalFixedSub">للفرد الواحد بالغرفة الزوجية</span>
+          <div class="modal-bottom-price-val" dir="rtl">
+            <span class="modal-bottom-curr">₪</span>
+            <span class="modal-bottom-num" id="modalFixedPrice">2000</span>
+          </div>
+        </div>
+        <button type="button" class="btn-modal-book-now" id="btnModalBookNow">
+          احجز الآن
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== CANCELLATION POLICY MODAL (Matching Exact Screenshot) ==================== -->
+  <div class="luxury-modal" id="cancellationModal" aria-hidden="true" role="dialog" aria-labelledby="modalCancelTitle">
+    <div class="modal-backdrop" id="cancelBackdrop"></div>
+    <div class="modal-card modal-card-cancel">
+      
+      <!-- Modal Header -->
+      <div class="modal-header-cancel">
+        <div class="modal-cancel-top-row">
+          <span class="modal-cancel-dest" id="cancelPackageDest">باتومي، جورجيا</span>
+          <button type="button" class="btn-modal-close-acc" id="btnCloseCancelModal" aria-label="إغلاق النافذة">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <h3 class="modal-cancel-title" id="modalCancelTitle">شروط الإلغاء</h3>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-cancel-body">
+        <p class="cancel-empty-msg">لم تُضف شروط الإلغاء بعد.</p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ==================== FLOATING CONCIERGE WHATSAPP ==================== -->
   <a href="https://wa.me/972502400674?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B1%D9%88%D9%8A%D8%A7%D9%84%20%D9%84%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%81%D8%B1%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D8%AD%D8%AF%D8%AB%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D9%88%D8%B6%20%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9." 
      class="floating-whatsapp" 
      target="_blank" 
      rel="noopener noreferrer" 
      aria-label="تواصل مع مستشار رويال عبر واتساب">
-    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.23 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
     </svg>
     <span class="whatsapp-label">تواصل معنا</span>
   </a>
 
   <!-- JavaScript -->
-  <script src="packages.js?v=1.2"></script>
+  <script src="packages.js?v=2.2"></script>
 </body>
 </html>
+

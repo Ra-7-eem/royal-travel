@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>لوحة تحكم باقات وعروض | رويال للسياحة والسفر</title>
+  <meta name="description" content="لوحة تحكم إدارة باقات وعروض رويال للسياحة والسفر. أضف، عدل، واحذف العروض السياحية بسهولة.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css?v=1.3">
+</head>
+<body class="admin-dark-theme">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="admin-top-nav">
+    <div class="admin-nav-inner">
+      <!-- Brand Logo (Right side in RTL) -->
+      <div class="admin-brand-wrap">
+        <a href="index.html" class="brand-link" title="الرئيسية">
+          <span class="brand-name">رويال للسياحة والسفر</span>
+          <span class="brand-sub">ROYAL TRAVEL & TOURISM</span>
+        </a>
+        <span class="admin-badge">لوحة التحكم</span>
+      </div>
+
+      <!-- Action Navigation Links (Left side in RTL) -->
+      <div class="admin-nav-actions">
+        <a href="packages.html" class="nav-btn nav-btn-outline" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span>معاينة صفحة العروض</span>
+        </a>
+        <a href="index.html" class="nav-btn nav-btn-outline" target="_blank" rel="noopener">
+          <span>الموقع الرئيسي</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN ADMIN CONTAINER ==================== -->
+  <main class="admin-main-container">
+
+    <!-- Header Section (Matching Exact Screenshot) -->
+    <section class="admin-header-section">
+      <h1 class="admin-page-title">لوحة تحكم باقات وعروض</h1>
+      <p class="admin-page-subtitle">رويال للسياحة والسفر – أضف عرضاً جديداً وسيظهر في قسم الباقات</p>
+    </section>
+
+    <!-- ==================== SECTION: العروض المنشورة (PUBLISHED OFFERS) ==================== -->
+    <section class="admin-section-card published-offers-section" id="publishedOffersSection">
+      
+      <!-- Section Header -->
+      <div class="section-card-header">
+        <div class="card-header-right">
+          <div class="badge-icon-circle badge-star">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h2 class="card-header-title">العروض المنشورة (<span id="offersCountNumber">3</span>)</h2>
+        </div>
+        
+        <!-- Add New Offer Quick Button -->
+        <button type="button" class="btn-quick-add" id="btnScrollToAddForm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>إضافة عرض جديد</span>
+        </button>
+      </div>
+
+      <!-- Published Offers Grid / List -->
+      <div class="published-offers-grid" id="publishedOffersGrid">
+        <!-- Rendered dynamically via JavaScript with Edit & Delete options for each offer -->
+      </div>
+
+      <!-- Empty State (Matching Exact Screenshot 1) -->
+      <div class="offers-empty-state" id="offersEmptyState" style="display: none;">
+        <p class="empty-state-text">لا توجد عروض بعد – أضف أول عرض من الأعلى</p>
+      </div>
+
+      <!-- Bottom Note (Matching Screenshot 1) -->
+      <div class="section-bottom-note">
+        <span class="note-text">وضع تجريبي: العروض محفوظة على هذا الجهاز فقط.</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== OFFER FORM MODAL POPUP (نافذة منبثقة للفورم) ==================== -->
+  <div class="admin-modal" id="offerFormModal" aria-hidden="true" role="dialog" aria-labelledby="formHeaderTitle">
+    <div class="admin-modal-backdrop" id="modalBackdrop"></div>
+    <div class="admin-modal-dialog">
+      
+      <!-- Modal Close Button -->
+      <button type="button" class="btn-close-modal" id="btnCloseModal" aria-label="إغلاق النافذة">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Scrollable Modal Body -->
+      <div class="admin-modal-scroll" id="adminModalScroll">
+        <form id="adminOfferForm" class="admin-offer-form" autocomplete="off">
+          
+          <!-- Hidden input to track whether editing or adding new -->
+          <input type="hidden" id="editingOfferId" value="">
+
+          <!-- ==================== CARD 1: إضافة عرض جديد (BASIC INFO & DATES) ==================== -->
+          <section class="admin-section-card form-step-card" id="formCardStep1">
+        
+        <div class="section-card-header">
+          <div class="card-header-right">
+            <div class="badge-icon-circle badge-step">
+              <span class="step-num">١</span>
+            </div>
+            <h2 class="card-header-title" id="formHeaderTitle">إضافة عرض جديد</h2>
+          </div>
+          <span class="card-header-badge" id="formModeBadge">عرض جديد</span>
+        </div>
+
+        <div class="card-fields-body">
+          
+          <!-- Field: اسم الوجهة -->
+          <div class="form-group">
+            <label class="form-label" for="destNameInput">اسم الوجهة</label>
+            <input type="text" class="form-input" id="destNameInput" placeholder="مثال: إسطنبول، تركيا" required>
+          </div>
+
+          <!-- Field: صورة خلفية الوجهة (Dashed Upload Box) -->
+          <div class="form-group">
+            <label class="form-label">صورة خلفية الوجهة</label>
+            <div class="dashed-upload-box" id="destImageUploadBox" tabindex="0" role="button" aria-label="اضغط لاختيار صورة خلفية الوجهة">
+              <input type="file" id="destImageFileInput" accept="image/*" class="file-hidden-input">
+              <div class="upload-box-content" id="destUploadContent">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="upload-icon">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span class="upload-text">اضغط لاختيار صورة</span>
+              </div>
+              <div class="upload-preview-wrap" id="destImagePreviewWrap" style="display: none;">
+                <img src="" alt="معاينة خلفية الوجهة" class="upload-preview-img" id="destImagePreviewImg">
+                <button type="button" class="btn-remove-preview" id="btnRemoveDestImg" aria-label="حذف الصورة">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row: تاريخ الرحلة - من & تاريخ الرحلة - إلى -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="dateFromInput">تاريخ الرحلة – من</label>
+              <div class="input-with-icon">
+                <input type="date" class="form-input" id="dateFromInput" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dateToInput">تاريخ الرحلة – إلى</label>
+              <div class="input-with-icon">
+                <input type="date" class="form-input" id="dateToInput" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row: عدد الأيام & عدد الليالي -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="daysCountInput">عدد الأيام</label>
+              <input type="number" min="1" max="99" class="form-input" id="daysCountInput" placeholder="مثال: 6" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nightsCountInput">عدد الليالي</label>
+              <input type="number" min="1" max="99" class="form-input" id="nightsCountInput" placeholder="مثال: 5" required>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ==================== CARD 2: الفندق والإقامة ==================== -->
+      <section class="admin-section-card form-step-card" id="formCardStep2">
+        
+        <div class="section-card-header">
+          <div class="card-header-right">
+            <div class="badge-icon-circle badge-step">
+              <span class="step-num">٢</span>
+            </div>
+            <h2 class="card-header-title">الفندق والإقامة</h2>
+          </div>
+        </div>
+
+        <div class="card-fields-body">
+          
+          <!-- Row: اسم الفندق & نوع الغرفة -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="hotelNameInput">اسم الفندق</label>
+              <input type="text" class="form-input" id="hotelNameInput" placeholder="مثال: فندق إيفوريا باتومي" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="roomTypeInput">نوع الغرفة</label>
+              <input type="text" class="form-input" id="roomTypeInput" placeholder="مثال: غرفة مزدوجة مطلة على البحر" required>
+            </div>
+          </div>
+
+          <!-- Field: تقييم الفندق (Interactive Golden Stars) -->
+          <div class="form-group">
+            <label class="form-label">تقييم الفندق</label>
+            <div class="star-rating-picker" id="hotelStarPicker" role="radiogroup" aria-label="اختيار عدد نجوم الفندق">
+              <button type="button" class="star-btn active" data-rating="1" aria-label="نجمة واحدة">★</button>
+              <button type="button" class="star-btn active" data-rating="2" aria-label="نجمتان">★</button>
+              <button type="button" class="star-btn active" data-rating="3" aria-label="3 نجوم">★</button>
+              <button type="button" class="star-btn active" data-rating="4" aria-label="4 نجوم">★</button>
+              <button type="button" class="star-btn active" data-rating="5" aria-label="5 نجوم">★</button>
+              <span class="star-count-label" id="starCountLabel">5 نجوم</span>
+            </div>
+            <input type="hidden" id="hotelStarsVal" value="5">
+          </div>
+
+          <!-- Field: صور الفندق (Multiple Upload Box) -->
+          <div class="form-group">
+            <label class="form-label">صور الفندق</label>
+            <div class="dashed-upload-box" id="hotelImagesUploadBox" tabindex="0" role="button" aria-label="اضغط لإضافة صور الفندق">
+              <input type="file" id="hotelImagesFileInput" accept="image/*" multiple class="file-hidden-input">
+              <div class="upload-box-content">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="upload-icon">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span class="upload-text">اضغط لإضافة صور (يمكن اختيار أكثر من صورة)</span>
+              </div>
+            </div>
+            <!-- Thumbnails Container for multiple uploaded hotel images -->
+            <div class="hotel-thumbnails-grid" id="hotelThumbnailsGrid"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ==================== CARD 3: الطيران والخدمات ==================== -->
+      <section class="admin-section-card form-step-card" id="formCardStep3">
+        
+        <div class="section-card-header">
+          <div class="card-header-right">
+            <div class="badge-icon-circle badge-step">
+              <span class="step-num">٣</span>
+            </div>
+            <h2 class="card-header-title">الطيران والخدمات</h2>
+          </div>
+        </div>
+
+        <div class="card-fields-body">
+          
+            <!-- Row: نوع الطيران & اسم شركة الطيران -->
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="flightTypeSelect">نوع الطيران</label>
+                <div class="select-wrapper">
+                  <select class="form-input form-select" id="flightTypeSelect">
+                    <option value="مباشر" selected>مباشر</option>
+                    <option value="ترانزيت">ترانزيت</option>
+                    <option value="طيران اقتصادي">طيران اقتصادي</option>
+                    <option value="درجة رجال الأعمال">درجة رجال الأعمال</option>
+                  </select>
+                  <span class="select-chevron">▾</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="airlineNameInput">اسم شركة الطيران</label>
+                <input type="text" class="form-input" id="airlineNameInput" placeholder="مثال: الخطوط الجوية التركية / إل عال">
+              </div>
+            </div>
+
+            <!-- Section Subtitle: موعد الرحلة (اكتب الوقت الذي تريده) -->
+            <div class="form-subheading-wrap">
+              <span class="form-subheading-text">موعد الرحلة (اكتب الوقت الذي تريده)</span>
+            </div>
+
+            <!-- Row: من الساعة & إلى الساعة -->
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="flightTimeFromInput">من الساعة</label>
+                <input type="time" class="form-input" id="flightTimeFromInput" value="07:45">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="flightTimeToInput">إلى الساعة</label>
+                <input type="time" class="form-input" id="flightTimeToInput" value="12:00">
+              </div>
+            </div>
+
+            <!-- ==================== TRANSIT DETAILS BLOCK (Shown when نوع الطيران is ترانزيت) ==================== -->
+            <div class="transit-details-block" id="transitDetailsBlock" style="display: none;">
+              
+              <div class="form-subheading-wrap">
+                <span class="form-subheading-text">تفاصيل الترانزيت</span>
+              </div>
+
+              <!-- Row: مطار الإقلاع & مطار الهبوط -->
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="transitDepAirportInput">مطار الإقلاع</label>
+                  <input type="text" class="form-input" id="transitDepAirportInput" placeholder="مطار الإقلاع">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="transitArrAirportInput">مطار الهبوط</label>
+                  <input type="text" class="form-input" id="transitArrAirportInput" placeholder="مطار الهبوط">
+                </div>
+              </div>
+
+              <!-- Row: مدة الرحلة & مدة الانتظار بالمطار -->
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="transitFlightDurationInput">مدة الرحلة</label>
+                  <input type="text" class="form-input" id="transitFlightDurationInput" placeholder="مثال: 5 ساعات 30 دقيقة">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="transitLayoverDurationInput">مدة الانتظار بالمطار</label>
+                  <input type="text" class="form-input" id="transitLayoverDurationInput" placeholder="مثال: 2 ساعات 50 دقيقة">
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Row: وزن الحقيبة & التوصيل من وإلى المطار -->
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="baggageWeightInput">وزن الحقيبة (كغ)</label>
+                <input type="text" class="form-input" id="baggageWeightInput" placeholder="مثال: 23" value="23">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">التوصيل من وإلى المطار</label>
+                <!-- 3 Pill Toggle Buttons (Matching Exact Screenshot 4) -->
+                <div class="pill-toggle-group" id="transferToggleGroup" role="radiogroup" aria-label="خيارات التوصيل من وإلى المطار">
+                  <button type="button" class="pill-btn active" data-val="ذهاب وإياب">ذهاب وإياب</button>
+                  <button type="button" class="pill-btn" data-val="ذهاب فقط">ذهاب فقط</button>
+                  <button type="button" class="pill-btn" data-val="لا يوجد">لا يوجد</button>
+                </div>
+                <input type="hidden" id="airportTransferVal" value="ذهاب وإياب">
+              </div>
+            </div>
+
+            <!-- Field: السعر ابتداءً من (With Currency Selector) -->
+            <div class="form-group">
+              <label class="form-label" for="packagePriceInput">السعر ابتداءً من</label>
+              <div class="price-input-group">
+                <div class="currency-select-wrap">
+                  <select class="currency-select" id="currencySelect" aria-label="العملة">
+                    <option value="₪" selected>₪ (شيكل)</option>
+                    <option value="$">$ (دولار)</option>
+                    <option value="€">€ (يورو)</option>
+                  </select>
+                  <span class="currency-chevron">▾</span>
+                </div>
+                <input type="number" min="0" step="50" class="form-input price-num-input" id="packagePriceInput" placeholder="0" value="2000" required>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- ==================== FORM ACTIONS BAR ==================== -->
+        <div class="form-actions-bar">
+          <button type="submit" class="btn-submit-offer" id="btnSubmitOffer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span id="btnSubmitText">حفظ ونشر العرض</span>
+          </button>
+
+          <button type="button" class="btn-cancel-edit" id="btnCancelEdit">
+            إلغاء
+          </button>
+        </div>
+
+        </form>
+      </div> <!-- End admin-modal-scroll -->
+
+    </div> <!-- End admin-modal-dialog -->
+  </div> <!-- End admin-modal -->
+
+  <!-- ==================== FLOATING NOTIFICATION TOAST ==================== -->
+  <div class="admin-toast" id="adminToast" role="alert" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">✓</span>
+    <span class="toast-msg" id="toastMsg">تم حفظ العرض بنجاح!</span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="admin.js?v=1.3"></script>
+</body>
+</html>
