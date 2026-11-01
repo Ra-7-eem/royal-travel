@@ -1,6 +1,6 @@
 /**
  * ROYAL TRAVEL & TOURISM (رويال للسياحة والسفر)
- * Admin Dashboard Controller (admin.js) - v1.3
+ * Admin Dashboard Controller (admin.js) - v1.4
  * Handles published offers view, edit/delete actions, transit fields toggle, and modal popup form
  */
 

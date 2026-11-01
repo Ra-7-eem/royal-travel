@@ -1,6 +1,6 @@
 /**
  * ROYAL TRAVEL & TOURISM (رويال للسياحة والسفر)
- * Packages & Offers Page Controller (packages.js) - v2.2
+ * Packages & Offers Page Controller (packages.js) - v2.5
  * Interactive 4-tab accordion modal, hotel photo carousel, and policies
  */
 
@@ -28,23 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
       flightCards: [
         {
           tag: 'رحلة الذهاب',
-          deptCode: 'TLV',
-          arrCode: 'BUS',
-          pillTime: '07:45 - 12:00 ذهاب',
+          rightLabel: 'مطار الإقلاع',
+          rightCode: 'TLV',
+          leftLabel: 'مطار الهبوط',
+          leftCode: 'BUS',
+          pillTime: '07:45-12:00 ذهاب',
           typeBadge: 'مباشر'
         },
         {
           tag: 'رحلة العودة',
-          deptCode: 'BUS',
-          arrCode: 'TLV',
-          pillTime: '13:25 - 13:55 عودة',
-          typeBadge: 'مباشر',
-          isReverse: true
+          rightLabel: 'مطار الهبوط',
+          rightCode: 'TLV',
+          leftLabel: 'مطار الإقلاع',
+          leftCode: 'BUS',
+          pillTime: '13:25-13:55 عودة',
+          typeBadge: 'مباشر'
         }
       ],
       hasSummaryPills: true,
-      sumPillDept: 'ذهاب &nbsp; 07:45 - 12:00',
-      sumPillReturn: 'عودة &nbsp; 13:25 - 13:55',
+      sumPillDept: '<span class="sum-pill-label">ذهاب</span> <span class="sum-pill-time">07:45-12:00</span>',
+      sumPillReturn: '<span class="sum-pill-label">عودة</span> <span class="sum-pill-time">13:25-13:55</span>',
       flightRows: [
         { label: 'مدة الرحلة', val: 'ساعتان' },
         { label: 'نوع الطيران', val: 'مباشر' },
@@ -77,37 +80,43 @@ document.addEventListener('DOMContentLoaded', () => {
       flightCards: [
         {
           tag: 'الذهاب - الرحلة الأولى',
-          deptCode: 'TLV',
-          arrCode: 'ADD',
-          subDate: '22 ديسمبر',
+          rightLabel: 'مطار الإقلاع',
+          rightCode: 'TLV',
+          leftLabel: 'مطار الهبوط',
+          leftCode: 'ADD',
+          subDate: '23 ديسمبر',
           subTime: '00:45 - 06:00',
           subDuration: '4 ساعات و 15 دقيقة'
         },
         {
           tag: 'الذهاب - الرحلة الثانية',
-          deptCode: 'ADD',
-          arrCode: 'MRU',
-          subDate: '22 ديسمبر',
+          rightLabel: 'مطار الإقلاع',
+          rightCode: 'ADD',
+          leftLabel: 'مطار الهبوط',
+          leftCode: 'MRU',
+          subDate: '23 ديسمبر',
           subTime: '08:50 - 15:20',
-          subDuration: '4 ساعات و 20 دقيقة'
+          subDuration: '5 ساعات و 30 دقيقة'
         },
         {
           tag: 'العودة - الرحلة الأولى',
-          deptCode: 'MRU',
-          arrCode: 'ADD',
-          subDate: '20 ديسمبر',
-          subTime: '16:20 - 20:50',
-          subDuration: '4 ساعات و 10 دقائق',
-          isReverse: true
+          rightLabel: 'مطار الإقلاع',
+          rightCode: 'MRU',
+          leftLabel: 'مطار الهبوط',
+          leftCode: 'ADD',
+          subDate: '30 ديسمبر',
+          subTime: '16:20 - 20:30',
+          subDuration: '5 ساعات و 10 دقائق'
         },
         {
           tag: 'العودة - الرحلة الثانية',
-          deptCode: 'ADD',
-          arrCode: 'TLV',
-          subDate: '20 ديسمبر — 21 ديسمبر',
-          subTime: '23:55 - 05:00',
-          subDuration: '4 ساعات و 5 دقائق',
-          isReverse: true
+          rightLabel: 'مطار الإقلاع',
+          rightCode: 'ADD',
+          leftLabel: 'مطار الهبوط',
+          leftCode: 'TLV',
+          subDate: '30 ديسمبر — 31 ديسمبر',
+          subTime: '23:55 - 03:00',
+          subDuration: '4 ساعات و 5 دقائق'
         }
       ],
       hasSummaryPills: false,
@@ -148,16 +157,19 @@ document.addEventListener('DOMContentLoaded', () => {
       flightCards: [
         {
           tag: 'رحلة الذهاب',
-          deptCode: 'TLV',
-          arrCode: 'ZNZ',
+          rightLabel: 'مطار الإقلاع',
+          rightCode: 'TLV',
+          leftLabel: 'مطار الهبوط',
+          leftCode: 'ZNZ',
           typeBadge: 'مباشر'
         },
         {
           tag: 'رحلة العودة',
-          deptCode: 'ZNZ',
-          arrCode: 'TLV',
-          typeBadge: 'مباشر',
-          isReverse: true
+          rightLabel: 'مطار الهبوط',
+          rightCode: 'TLV',
+          leftLabel: 'مطار الإقلاع',
+          leftCode: 'ZNZ',
+          typeBadge: 'مباشر'
         }
       ],
       hasSummaryPills: false,
@@ -253,14 +265,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (fc.pillTime) {
           bottomContent = `
             <div class="flight-card-footer">
+              <span class="flight-type-badge">${fc.typeBadge || 'مباشر'}</span>
               <span class="flight-time-pill">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                ${fc.pillTime}
+                <span>${fc.pillTime}</span>
               </span>
-              <span class="flight-type-badge">${fc.typeBadge || 'مباشر'}</span>
             </div>
           `;
         } else if (fc.typeBadge) {
@@ -271,26 +283,31 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
         }
 
+        const rightLabel = fc.rightLabel || 'مطار الإقلاع';
+        const rightCode = fc.rightCode || fc.deptCode;
+        const leftLabel = fc.leftLabel || 'مطار الهبوط';
+        const leftCode = fc.leftCode || fc.arrCode;
+
         return `
           <div class="flight-card">
             <div class="flight-card-tag">${fc.tag}</div>
             <div class="flight-route-row">
               <div class="airport-point">
-                <span class="airport-label">مطار الإقلاع</span>
-                <span class="airport-code">${fc.deptCode}</span>
+                <span class="airport-label">${rightLabel}</span>
+                <span class="airport-code">${rightCode}</span>
               </div>
               <div class="flight-line-wrap">
                 <span class="flight-line-dash"></span>
-                <div class="flight-plane-circle ${fc.isReverse ? 'plane-reverse' : ''}">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <div class="flight-plane-circle">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
                   </svg>
                 </div>
                 <span class="flight-line-dash"></span>
               </div>
               <div class="airport-point">
-                <span class="airport-label">مطار الهبوط</span>
-                <span class="airport-code">${fc.arrCode}</span>
+                <span class="airport-label">${leftLabel}</span>
+                <span class="airport-code">${leftCode}</span>
               </div>
             </div>
             ${bottomContent}
