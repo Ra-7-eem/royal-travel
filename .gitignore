@@ -3,6 +3,7 @@ temp/
 temp*/
 temp1/
 temp2/
+test/
 
 # Operating System files
 .DS_Store
