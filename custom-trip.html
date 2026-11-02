@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>صمّم رحلتك الخاصة | رويال للسياحة والسفر</title>
+  <meta name="description" content="صمّم رحلتك الخاصة مع رويال للسياحة والسفر: موريشيوس، بالي، وزنجبار. اختر وجهتك وفندقك وأنشطتك اليومية بأعلى معايير الفخامة.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; }
+    img { max-width: 100%; }
+    [hidden] { display: none !important; }
+    
+    /* Luxury Dark Royal Palette */
+    :root {
+      --bg: #08101a;
+      --surface: #0f1c2d;
+      --surface-2: #142337;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: rgba(223, 180, 110, 0.18);
+      --navy: #060c14;
+      --on-navy: #ffffff;
+      --gold: #dfb46e;
+      --on-gold: #0b141e;
+      --gold-ink: #dfb46e;
+      --gold-soft: rgba(223, 180, 110, 0.12);
+      --danger: #f87171;
+      --f-display: 'Cairo', 'Tajawal', sans-serif;
+      --f-body: 'Cairo', 'Tajawal', sans-serif;
+      --r: 18px;
+      color-scheme: dark;
+    }
+
+    html { direction: rtl; }
+    * { box-sizing: border-box; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.6; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .wrap { max-width: 760px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+    /* Top Navbar in Hero */
+    .custom-trip-top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0 18px;
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 18px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .btn-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-nav-pill:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0b141e;
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero { position: relative; background: var(--navy); color: var(--on-navy); overflow: hidden; border-bottom: 1px solid var(--line); }
+    .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; transition: opacity 0.4s ease; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,16,26,0.96) 12%, rgba(8,16,26,0.65) 60%, rgba(8,16,26,0.8)); }
+    .hero .wrap { position: relative; z-index: 1; padding-block: 16px 28px; display: flex; flex-direction: column; min-height: 250px; justify-content: space-between; }
+    .hero-text-content { display: flex; flex-direction: column; gap: 6px; }
+    .brand { font-size: 12px; letter-spacing: 0.15em; color: var(--gold); font-weight: 800; }
+    .hero h1 { margin: 0; font-family: var(--f-display); font-size: clamp(26px, 6vw, 38px); line-height: 1.25; font-weight: 900; }
+    .hero p { margin: 0; color: rgba(255, 255, 255, 0.86); max-width: 48ch; font-size: 14px; }
+
+    /* Steps rail */
+    .rail { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .rail ol { list-style: none; margin: 0; padding-block: 12px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .rail button { width: 100%; border: 0; background: none; padding: 0; display: flex; flex-direction: column; gap: 6px; align-items: stretch; text-align: center; min-height: 44px; color: var(--muted); font-size: 13px; font-weight: 600; }
+    .rail button:disabled { cursor: default; }
+    .rail .bar-seg { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); }
+    .rail .done .bar-seg, .rail .now .bar-seg { background: var(--gold); }
+    .rail .now { color: #ffffff; font-weight: 800; }
+    .rail .done { color: var(--gold); }
+
+    main { padding-block: 24px 140px; }
+    .step-head { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+    .eyebrow { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.05em; }
+    h2 { margin: 0; font-family: var(--f-display); font-size: 26px; line-height: 1.3; font-weight: 800; color: #ffffff; }
+    h3 { margin: 0; font-size: 16px; font-weight: 700; color: #ffffff; }
+    .sub { color: var(--muted); font-size: 13.5px; margin: 0; }
+    .stack { display: flex; flex-direction: column; gap: 20px; }
+    .block { display: flex; flex-direction: column; gap: 10px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+
+    /* Destinations */
+    .dgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .dcard { padding: 0; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.25); transition: transform 0.2s ease, border-color 0.2s ease; cursor: pointer; }
+    .dcard:hover { transform: translateY(-2px); }
+    .dcard[aria-pressed="true"] { border: 2px solid var(--gold); box-shadow: 0 0 0 2px var(--gold-soft); }
+    .dcard .ph { position: relative; display: block; aspect-ratio: 4/3; max-width: 100%; }
+    .dcard .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .dcard .ok { position: absolute; top: 0; left: 0; width: 30px; height: 30px; border-radius: 0 0 12px 0; background: var(--gold); color: var(--on-gold); display: none; place-items: center; }
+    .dcard[aria-pressed="true"] .ok { display: grid; }
+    .dcard .nm { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 6px; font-size: 14px; font-weight: 700; color: #ffffff; }
+    .flag { width: 20px; height: 14px; border-radius: 2px; flex-shrink: 0; overflow: hidden; }
+
+    /* Fields */
+    .field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--muted); min-width: 0; }
+    .field input, .field select, .field textarea { min-height: 48px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); padding: 0 12px; font-size: 15px; font-weight: 500; color: #ffffff; width: 100%; }
+    .field textarea { padding: 12px; resize: vertical; min-height: 84px; }
+    .field.bad input { border-color: var(--danger); }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--gold); background: var(--gold-soft); padding: 5px 12px; border-radius: 999px; }
+    .check { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; color: #cbd5e1; cursor: pointer; }
+    .check input { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; }
+
+    .people { padding-block: 4px; }
+    .prow { display: flex; align-items: center; justify-content: space-between; padding-block: 10px; }
+    .prow + .prow { border-top: 1px solid var(--line); }
+    .prow span { display: flex; flex-direction: column; }
+    .prow b { color: #ffffff; }
+    .prow small { color: var(--muted); font-size: 12px; }
+    .stepper { display: flex; align-items: center; gap: 14px; }
+    .stepper output { min-width: 20px; text-align: center; font-weight: 800; font-size: 17px; color: #ffffff; font-variant-numeric: tabular-nums; }
+    .rnd { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); font-size: 20px; display: grid; place-items: center; color: #ffffff; }
+    .rnd.plus { background: var(--gold); color: #0b141e; border-color: var(--gold); font-weight: 800; }
+    .rnd:disabled { opacity: 0.35; cursor: default; }
+
+    /* Passport chips */
+    .pchips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pchip { min-height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); font-size: 14px; font-weight: 600; color: #e2e8f0; flex: 1 1 auto; justify-content: center; }
+    .pchip[aria-checked="true"] { background: var(--gold-soft); border-color: var(--gold); color: var(--gold); }
+
+    /* Date range boxes */
+    .drange { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
+    .dbox { min-height: 50px; display: flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 12px; padding: 0 10px; background: var(--surface-2); min-width: 0; color: var(--gold); }
+    .dbox .lb { font-size: 12px; color: var(--muted); flex-shrink: 0; }
+    .dbox input { border: 0; background: none; min-width: 0; width: 100%; font-size: 14px; font-weight: 600; color: #ffffff; padding: 0; min-height: 44px; }
+    .dbox:focus-within { border-color: var(--gold); }
+    .drange .arr { color: var(--muted); font-size: 18px; }
+
+    /* Duration chips */
+    .dchips { display: grid; grid-template-columns: repeat(auto-fit, minmax(74px, 1fr)); gap: 8px; }
+    .dchip { min-height: 52px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); font-size: 14px; font-weight: 700; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.3; }
+    .dchip small { font-size: 11px; color: var(--gold); font-weight: 600; }
+    .dchip[aria-checked="true"] { background: var(--gold); color: #0b141e; border-color: var(--gold); }
+    .dchip[aria-checked="true"] small { color: #0b141e; }
+
+    /* Budget tiers */
+    .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .tier { min-height: 68px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 8px 4px; text-align: center; color: #ffffff; }
+    .tier b { font-size: 15px; }
+    .tier span { font-size: 12px; color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+    .tier[aria-checked="true"] { background: var(--gold); border-color: var(--gold); color: #0b141e; }
+    .tier[aria-checked="true"] span { color: #0b141e; }
+    .tier .pp { font-size: 11px; color: var(--muted); font-weight: 500; }
+    .tier[aria-checked="true"] .pp { color: #0b141e; }
+
+    /* Form container */
+    .dform { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 18px 22px; display: flex; flex-direction: column; gap: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .fs { display: flex; flex-direction: column; gap: 12px; }
+    .sh { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .sh h3 { display: flex; align-items: center; gap: 8px; font-size: 17px; }
+    .sh .num { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: #0b141e; font-size: 13px; font-weight: 800; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+    .shic { color: var(--gold); display: flex; }
+
+    /* Stays & Hotels */
+    .stays { display: flex; flex-direction: column; gap: 10px; }
+    .stay { display: flex; align-items: center; gap: 14px; width: 100%; text-align: right; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface-2); color: #ffffff; transition: border-color 0.2s, box-shadow 0.2s; }
+    .stay[aria-checked="true"] { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-soft); background: #1a2a42; }
+    .stay .radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--muted); flex-shrink: 0; display: grid; place-items: center; margin: 0; }
+    .stay[aria-checked="true"] .radio { border-color: var(--gold); }
+    .stay[aria-checked="true"] .radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+    .sbody { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+    .shead { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .sname { font-size: 15px; font-weight: 800; color: #ffffff; }
+    .stype { font-size: 12px; font-weight: 700; background: var(--gold); color: #0b141e; padding: 3px 12px; border-radius: 999px; }
+    .sline { display: flex; align-items: center; gap: 6px 14px; flex-wrap: wrap; }
+    .srate { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); }
+    .srate .stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; }
+    .sarea { display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: 12px; }
+    .achips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .achips span { font-size: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 3px 10px; border-radius: 999px; color: #cbd5e1; }
+
+    /* Suggested trips list */
+    .sgtrips { display: flex; flex-direction: column; gap: 8px; }
+    .sgtrip { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface-2); }
+    .sgtrip .tph { width: 56px; height: 56px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+    .sgtrip .tph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sgtrip .tb { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .sgtrip .tb b { font-size: 14px; color: #ffffff; }
+    .sgtrip .tb small { display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: 12px; }
+    .tday { font-size: 12px; font-weight: 700; color: var(--gold); background: var(--gold-soft); padding: 3px 10px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+    .dbig { width: 48px; height: 48px; border-radius: 10px; display: grid; place-items: center; font-size: 18px; font-weight: 800; flex-shrink: 0; background: var(--navy); color: var(--gold); border: 1px solid var(--line); }
+    .fxtag2 { display: inline-block; font-size: 11px; font-weight: 700; color: var(--gold); background: var(--gold-soft); padding: 1px 8px; border-radius: 999px; vertical-align: middle; margin-inline-start: 4px; }
+    .restbtn { display: flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px dashed var(--gold); background: var(--surface); color: var(--gold); font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .restbtn[aria-pressed="true"] { border-style: solid; background: var(--gold); color: #0b141e; }
+    .sgtrip.off { opacity: 0.75; border: 1px dashed rgba(255, 255, 255, 0.18); background: rgba(15, 28, 45, 0.55); }
+    .sgtrip.off .tday { color: #cbd5e1; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16); font-weight: 700; }
+    .sub2.muted { color: #cbd5e1; font-size: 14px; font-weight: 800; margin-top: 18px; margin-bottom: 8px; }
+    .note { display: flex; gap: 10px; align-items: flex-start; background: var(--gold-soft); color: #ffffff; border-radius: 14px; padding: 12px 14px; font-size: 13px; border: 1px solid var(--line); }
+    .note svg { flex-shrink: 0; color: var(--gold); margin-top: 2px; }
+    .pprice { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-top: 1px dashed var(--line); padding-top: 14px; }
+    .pprice small { display: block; color: var(--muted); font-size: 12px; }
+    .pprice b { font-size: 20px; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .tag { font-size: 11px; font-weight: 700; color: var(--gold); background: var(--gold-soft); padding: 3px 10px; border-radius: 999px; }
+
+    /* Program Mode Selection (Step 2) */
+    .opts { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .opt { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface-2); color: #ffffff; text-align: right; cursor: pointer; transition: all 0.25s ease; box-sizing: border-box; }
+    .opt:hover { background: #18283d; border-color: rgba(223, 180, 110, 0.4); }
+    .opt[aria-checked="true"] { border: 2px solid var(--gold); background: #0d1a2c; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+    .opt-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .opt-title-row { display: flex; align-items: center; gap: 10px; }
+    .opt-title { font-size: 16px; font-weight: 800; color: #ffffff; }
+    .tag-easiest { font-size: 11px; font-weight: 700; background: var(--gold); color: #0b141e; padding: 2px 10px; border-radius: 999px; line-height: 1.4; display: inline-block; }
+    .opt-desc { font-size: 13.5px; color: var(--muted); }
+    .opt-radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.4); flex-shrink: 0; display: grid; place-items: center; transition: all 0.2s; }
+    .opt[aria-checked="true"] .opt-radio { border-color: #ffffff; }
+    .opt[aria-checked="true"] .opt-radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #ffffff; }
+
+    /* Note Banner in Program */
+    .note-program { background: rgba(35, 28, 14, 0.75); border: 1px solid rgba(223, 180, 110, 0.35); border-radius: 14px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; gap: 14px; color: #f8fafc; font-size: 13.5px; line-height: 1.5; }
+    .note-program .note-ic { color: var(--gold); display: flex; align-items: center; flex-shrink: 0; }
+
+    /* Custom Mode: Days Tabs & Activity Cards */
+    .days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
+    .days::-webkit-scrollbar { display: none; }
+    .day { min-width: 78px; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); color: #ffffff; display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; cursor: pointer; transition: all 0.2s; }
+    .day .dl { font-size: 13px; font-weight: 800; }
+    .day small { font-size: 11px; color: var(--muted); }
+    .day[aria-selected="true"] { background: var(--gold); color: #0b141e; border-color: var(--gold); }
+    .day[aria-selected="true"] small { color: #0b141e; font-weight: 700; }
+    .day.has:not([aria-selected="true"]) { border-color: var(--gold); }
+
+    .agrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+    .acard { display: flex; flex-direction: column; border-radius: 14px; border: 1px solid var(--line); background: var(--surface-2); overflow: hidden; text-align: right; color: #ffffff; padding: 0; cursor: pointer; transition: all 0.25s; position: relative; }
+    .acard:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .acard.on { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-soft); background: #18283f; }
+    .acard .ph { position: relative; height: 130px; width: 100%; overflow: hidden; }
+    .acard .ph img { width: 100%; height: 100%; object-fit: cover; }
+    .acard .heart { position: absolute; top: 8px; left: 8px; width: 32px; height: 32px; border-radius: 50%; background: rgba(8,16,26,0.7); backdrop-filter: blur(4px); display: grid; place-items: center; color: var(--gold); }
+    .acard .b { padding: 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .acard .b b { font-size: 14px; font-weight: 800; color: #ffffff; line-height: 1.3; }
+    .acard .rate { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: #f59e0b; font-weight: 700; }
+    .acard .meta { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--muted); flex-wrap: wrap; margin-top: auto; }
+    .acard .meta span { display: inline-flex; align-items: center; gap: 3px; }
+    .acard .flag { position: absolute; top: 8px; right: 8px; font-size: 10.5px; font-weight: 700; background: var(--gold); color: #0b141e; padding: 2px 8px; border-radius: 999px; }
+    .acard .flag.muted { background: rgba(8,16,26,0.85); color: var(--muted); border: 1px solid var(--line); }
+
+    .free { width: 100%; margin-top: 14px; min-height: 42px; border-radius: 12px; border: 1px dashed var(--line); background: transparent; color: var(--muted); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .free:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Custom Mode: Hotel Picker Panel */
+    .hcur { display: flex; flex-direction: column; gap: 10px; padding: 14px; background: var(--surface-2); border-radius: 14px; border: 1px solid var(--line); margin-top: 10px; }
+    .hcur .hl { display: flex; align-items: center; gap: 8px; font-size: 15px; }
+    .hpanel { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; padding: 14px; background: rgba(8, 16, 26, 0.6); border-radius: 14px; border: 1px solid var(--line); }
+    .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .seg button { min-height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); color: #ffffff; font-size: 13px; font-weight: 700; }
+    .seg button[aria-checked="true"] { background: var(--gold); color: #0b141e; border-color: var(--gold); }
+    .chips { display: flex; gap: 6px; }
+    .chip { min-height: 32px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); color: #ffffff; font-size: 12px; font-weight: 700; }
+    .chip[aria-pressed="true"] { background: var(--gold); color: #0b141e; border-color: var(--gold); }
+    .hlist { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+    .hrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); }
+    .hrow.sel { border-color: var(--gold); background: #16263b; }
+    .hrow .hi { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .hrow .hl { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .hrow .btn { min-height: 36px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--gold); background: transparent; color: var(--gold); font-size: 13px; font-weight: 700; }
+    .hrow .btn.on { background: var(--gold); color: #0b141e; }
+    .hrow .lvl { font-size: 11px; color: var(--gold); background: var(--gold-soft); padding: 1px 8px; border-radius: 999px; }
+    .stepper.sm { gap: 10px; }
+    .stepper.sm .rnd { width: 34px; height: 34px; font-size: 16px; border-radius: 50%; background: #142337; border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; cursor: pointer; transition: all 0.2s; }
+    .stepper.sm .rnd:hover:not(:disabled) { border-color: var(--gold); }
+    .stepper.sm .rnd.plus { background: #ffffff; color: #0b141e; border-color: #ffffff; font-weight: 800; }
+    .stepper.sm .rnd.plus:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); }
+    .stepper.sm .rnd:disabled { opacity: 0.3; cursor: default; }
+    .stepper.sm output { min-width: 18px; text-align: center; font-size: 16px; font-weight: 800; color: #ffffff; }
+
+    /* Sticky Bottom Action bar */
+    .actions { position: fixed; inset: auto 0 0 0; z-index: 6; background: rgba(15, 28, 45, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+    .actions .wrap { display: flex; gap: 12px; align-items: center; padding-block: 12px; }
+    .actions .info { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; flex: 1; }
+    .actions .info b { font-size: 14.5px; color: #ffffff; }
+    .actions .info small { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .back { width: 50px; height: 50px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface-2); display: grid; place-items: center; flex-shrink: 0; color: #ffffff; }
+    .next { min-height: 50px; border: 0; border-radius: 14px; background: var(--gold); color: #0b141e; font-weight: 800; font-size: 15.5px; padding: 0 22px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; box-shadow: 0 4px 15px rgba(223, 180, 110, 0.3); transition: transform 0.2s, filter 0.2s; }
+    .next:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+    /* Review & Done */
+    .sum { padding: 0; overflow: hidden; }
+    .sum .cover { position: relative; height: 140px; }
+    .sum .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sum .cover b { position: absolute; inset: auto 0 0 0; padding: 12px 16px; color: #fff; font-family: var(--f-display); font-size: 22px; font-weight: 900; background: linear-gradient(to top, rgba(8,16,26,0.92), transparent); }
+    .kv { padding: 6px 16px 10px; }
+    .kv > div { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-block: 10px; }
+    .kv > div + div { border-top: 1px solid var(--line); }
+    .kv span { display: flex; flex-direction: column; min-width: 0; }
+    .kv b { color: #ffffff; }
+    .kv small { color: var(--muted); font-size: 12px; }
+    .link { border: 0; background: none; color: var(--gold); font-weight: 700; min-height: 44px; padding: 0 4px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .plist { list-style: none; margin: 0; padding: 0; }
+    .plist li { display: flex; gap: 12px; padding-block: 8px; border-top: 1px solid var(--line); font-size: 14px; color: #e2e8f0; }
+    .plist li:first-child { border-top: 0; }
+    .plist b { color: var(--gold); min-width: 54px; font-size: 13px; }
+    .phone { display: flex; gap: 8px; }
+    .phone select { width: 100px; flex-shrink: 0; direction: ltr; }
+    .phone input { direction: ltr; text-align: right; }
+
+    .done { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px; padding-block: 40px 30px; }
+    .done .ok { width: 84px; height: 84px; border-radius: 50%; background: var(--gold); color: #0b141e; display: grid; place-items: center; box-shadow: 0 4px 20px rgba(223, 180, 110, 0.35); }
+    .done h2 { font-size: 1.85rem; font-weight: 800; color: #ffffff; margin: 0; }
+    .done-card { width: 100%; max-width: 360px; display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; background: #0d1a2c; border: 1px solid rgba(223, 180, 110, 0.22); border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); box-sizing: border-box; }
+    .done-card .sub { color: var(--muted); font-size: 15px; font-weight: 600; }
+    .done-card .code { font-weight: 800; letter-spacing: 0.08em; direction: ltr; color: var(--gold); font-size: 1.25rem; font-family: monospace, sans-serif; }
+    .btn-restart { margin-top: 10px; min-height: 46px; padding: 0 28px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.06); color: #ffffff; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.25s ease; }
+    .btn-restart:hover { background: var(--gold); border-color: var(--gold); color: #0b141e; transform: translateY(-2px); }
+
+    /* Floating WhatsApp Concierge */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 84px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .floating-whatsapp:hover { transform: translateY(-3px) scale(1.02); color: #ffffff; }
+    .whatsapp-icon { width: 22px; height: 22px; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .whatsapp-label { display: none; }
+      .floating-whatsapp { padding: 12px; border-radius: 50%; bottom: 80px; right: 18px; }
+    }
+
+    .fade { animation: fade 0.3s ease both; }
+    @keyframes fade { from { opacity: 0.4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <img id="heroImg" src="assets/faq/Mauritius.jpeg" alt="رويال للسياحة والسفر">
+  <div class="wrap">
+    
+    <!-- Top Navbar linking to Home -->
+    <nav class="custom-trip-top-nav" aria-label="شريط التنقل العلوي">
+      <a href="index.html" class="brand-logo-wrap" title="العودة للصفحة الرئيسية">
+        <span class="brand-name">رويال للسياحة والسفر</span>
+        <span class="brand-sub">ROYAL TRAVEL</span>
+      </a>
+      <div class="nav-actions-wrap">
+        <a href="index.html" class="btn-nav-pill btn-back-home" title="العودة للصفحة الرئيسية">
+          <span>الموقع الرئيسي</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <div class="hero-text-content">
+      <span class="brand">ROYAL · رويال للسياحة والسفر</span>
+      <h1>صمّم رحلتك الخاصة</h1>
+      <p>اختر وجهتك وفندقك وأنشطة كل يوم، ونحن نرتّب لك تجربة ملكية متكاملة بأدق التفاصيل.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="rail" aria-label="خطوات الحجز">
+  <div class="wrap">
+    <ol id="rail"></ol>
+  </div>
+</nav>
+
+<main class="wrap" id="view" aria-live="polite"></main>
+
+<div class="actions" id="actions">
+  <div class="wrap">
+    <button class="back" id="backBtn" type="button" aria-label="الخطوة السابقة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 6l6 6-6 6"></path>
+      </svg>
+    </button>
+    <div class="info">
+      <b id="infoMain">—</b>
+      <small id="infoSub">—</small>
+    </div>
+    <button class="next" id="nextBtn" type="button">
+      <span id="nextLabel">التالي</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 6l-6 6 6 6"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ==================== FLOATING CONCIERGE WHATSAPP ==================== -->
+<a href="https://wa.me/972502400674?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B1%D9%88%D9%8A%D8%A7%D9%84%20%D9%84%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%81%D8%B1%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%B1%D8%AD%D9%84%D8%AA%D9%8A%20%D8%A7%D9%84%D8%AE%D8%A7%D8%B5%D8%A9." 
+   class="floating-whatsapp" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="تواصل مع مستشار رويال عبر واتساب">
+  <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.23 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
+  </svg>
+  <span class="whatsapp-label">تواصل معنا</span>
+</a>
+
+<script>
+/* Smart Asset Resolver that works both in root and in /temp/ */
+const ASSET = p => p.startsWith('http') ? p : (window.location.pathname.includes('/temp/') ? '../' + p : p);
+
+/* ===== بيانات الوجهات المطابقة لأصول المشروع ===== */
+const DESTS = {
+  mauritius: {
+    name: 'موريشيوس',
+    region: 'المحيط الهندي',
+    img: ASSET('assets/faq/Mauritius.jpeg'),
+    packages: {
+      eco: { hotel: 'm5', plans: { 7: ['mv1', null, 'mv4', 'mv5', null], 8: ['mv1', null, 'mv4', 'mv5', null, 'mv6'], 9: ['mv1', 'mv3', null, 'mv4', 'mv5', null, 'mv6'] } },
+      mid: { hotel: 'm3', plans: { 7: ['mv1', 'mv3', 'mv4', 'mv5', null], 8: ['mv1', 'mv3', 'mv4', null, 'mv5', 'mv6'], 9: ['mv1', 'mv3', 'mv4', 'mv7', null, 'mv5', 'mv6'] } },
+      lux: { hotel: 'm1', plans: { 7: ['mv1', 'mv2', 'mv3', 'mv4', 'mv5'], 8: ['mv1', 'mv2', 'mv3', 'mv4', 'mv5', 'mv6'], 9: ['mv1', 'mv2', 'mv3', 'mv4', 'mv7', 'mv5', 'mv6'] } }
+    },
+    tripNotes: '',
+    suggested: {
+      stays: [
+        { id: 's1', type: 'hotel', name: 'Le Palmiste Resort & Spa', stars: 4, area: 'ترو أو بيش', feats: ['فطور يومي', 'مسبح', 'قريب من الشاطئ'], rooms: ['غرفة قياسية'] },
+        { id: 's2', type: 'villa', name: 'Villa Corail Grand Baie', stars: 5, area: 'غراند باي', feats: ['مسبح خاص', 'مطبخ مجهز', 'خصوصية للعائلات'], rooms: ['فيلا بغرفتين'] }
+      ],
+      trips: ['mv1', 'mv4', 'mv3', 'mv5', 'mv2', 'mv7', 'mv6'],
+      rest: { t: 'يوم راحة', s: 'يوم حر للاسترخاء على الشاطئ أو في مكان الإقامة.' }
+    },
+    durations: [7, 8, 9],
+    hotels: [
+      { id: 'm1', type: 'resort', name: 'Constance Belle Mare Plage', stars: 5, area: 'الساحل الشرقي', feats: ['شاطئ خاص', 'إطلالة بحرية'], rooms: ['جناح جونيور مطل على البحر', 'فيلا مع مسبح خاص'], pos: 'center 62%' },
+      { id: 'm2', type: 'resort', name: 'LUX* Belle Mare', stars: 5, area: 'بيل مار', feats: ['إطلالة بحرية', 'سبا فاخر'], rooms: ['غرفة جونيور', 'فيلا شاطئية'], pos: '20% 80%' },
+      { id: 'm3', type: 'resort', name: 'Veranda Palmar Beach', stars: 4, area: 'بالمار', feats: ['شاطئ رملي', 'مناسب للعائلات'], rooms: ['غرفة مطلة على الحديقة', 'غرفة مطلة على البحر'], pos: '85% 50%' },
+      { id: 'm4', type: 'hotel', name: 'Labourdonnais Waterfront', stars: 5, area: 'بورت لويس', feats: ['وسط العاصمة', 'قرب المرفأ'], rooms: ['غرفة ديلوكس', 'جناح مطل على المرفأ'], pos: '90% 20%' },
+      { id: 'm5', type: 'hotel', name: 'Le Suffren Hotel & Marina', stars: 4, area: 'بورت لويس', feats: ['إطلالة على المارينا', 'مسبح'], rooms: ['غرفة سوبيريور', 'غرفة مطلة على البحر'], pos: '10% 25%' }
+    ],
+    acts: [
+      { id: 'mv1', dur: '4 ساعات', name: 'فالي بارك', desc: 'استكشاف وادي النهر الأسود والمناظر الطبيعية الخلابة.', img: ASSET('assets/index/slide-1.avif'), pos: 'center 30%' },
+      { id: 'mv2', dur: 'ساعة', name: 'ركوب هليكوبتر', desc: 'جولة جوية ساحرة لمشاهدة أجمل معالم موريشيوس من السماء.', img: ASSET('assets/faq/Mauritius.jpeg'), pos: 'center 20%' },
+      { id: 'mv3', dur: 'يوم كامل', name: 'كاسيلا بارك', desc: 'يوم مليء بالمغامرات والأنشطة والحياة البرية.', img: ASSET('assets/faq/Mauritius.jpeg'), pos: '10% 45%' },
+      { id: 'mv4', dur: '4 ساعات', name: 'السباحة مع الدلافين والحيتان', desc: 'تجربة فريدة لمشاهدة الدلافين والحيتان في بيئتها الطبيعية.', img: ASSET('assets/faq/Mauritius.jpeg'), pos: 'center 88%' },
+      { id: 'mv5', dur: '5 ساعات', name: 'شلال شاماريل والأرض ذات السبع ألوان', desc: 'زيارة شلال شاماريل واكتشاف الأرض ذات الألوان السبعة.', img: ASSET('assets/index/slide-2.avif'), pos: '90% 40%' },
+      { id: 'mv7', dur: '3 ساعات', name: 'الغطس في بلو باي', desc: 'غطس ومشاهدة الشعاب المرجانية في المحمية البحرية.', img: ASSET('assets/faq/Mauritius.jpeg'), pos: 'center 100%' },
+      { id: 'mv6', dur: '4 ساعات', name: 'التسوق', desc: 'جولة تسوق في أفضل المراكز والمجمعات التجارية في موريشيوس.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '10% 30%' }
+    ],
+    program: {
+      first: { t: 'الوصول والتوصيل من المطار', s: 'الاستقبال في مطار موريشيوس والتوصيل إلى الفندق.' },
+      last: { t: 'التوصيل إلى المطار', s: 'التوصيل من الفندق إلى المطار للعودة إلى الوطن.' }
+    }
+  },
+
+  bali: {
+    name: 'بالي',
+    region: 'إندونيسيا',
+    img: ASSET('assets/index/ocean-img.avif'),
+    packages: {
+      eco: { hotel: 'b5', acts: ['ba2', 'ba3', 'ba4', 'ba5'] },
+      mid: { hotel: 'b3', acts: ['ba2', 'ba1', 'ba3', 'ba4', 'ba5'] },
+      lux: { hotel: 'b1', acts: ['ba2', 'ba1', 'ba3', 'ba4', 'ba5', 'ba6', 'ba7'] }
+    },
+    suggested: {
+      stays: [
+        { id: 'bs1', type: 'hotel', name: 'Ibis Styles Bali Legian', stars: 4, area: 'ليجيان', feats: ['فطور يومي', 'مسبح', 'قريب من الشاطئ'], rooms: ['غرفة قياسية'] },
+        { id: 'bs2', type: 'villa', name: 'Villa Kayu Ubud', stars: 5, area: 'أوبود', feats: ['مسبح خاص', 'إطلالة على الأرز', 'خصوصية للعائلات'], rooms: ['فيلا بغرفتين'] }
+      ],
+      trips: ['ba2', 'ba3', 'ba1', 'ba4', 'ba5', 'ba8', 'ba6', 'ba7'],
+      rest: { t: 'يوم راحة', s: 'يوم حر للاسترخاء على الشاطئ أو في مكان الإقامة.' }
+    },
+    durations: [6, 7, 8, 10],
+    noPass: ['جواز سفر إسرائيلي'],
+    tripNotes: '',
+    hotels: [
+      { id: 'b1', type: 'resort', name: 'AYANA Resort Bali', stars: 5, area: 'جيمباران', feats: ['إطلالة على المحيط', 'عدة مسابح'], rooms: ['غرفة ديلوكس', 'فيلا مع مسبح خاص'], pos: 'center 70%' },
+      { id: 'b2', type: 'resort', name: 'Padma Resort Ubud', stars: 5, area: 'أوبود', feats: ['وسط الغابة', 'مسبح لا متناهي'], rooms: ['غرفة ديلوكس', 'جناح عائلي'], pos: '20% 30%' },
+      { id: 'b3', type: 'resort', name: 'Alaya Resort Ubud', stars: 4, area: 'أوبود', feats: ['قريب من السوق', 'إطلالة على الأرز'], rooms: ['غرفة سوبيريور', 'غرفة ديلوكس'], pos: '80% 40%' },
+      { id: 'b4', type: 'hotel', name: 'Hotel Indigo Bali Seminyak', stars: 5, area: 'سيمينياك', feats: ['قرب الشاطئ', 'مطاعم ومقاهي'], rooms: ['غرفة ديلوكس', 'جناح'], pos: '50% 15%' },
+      { id: 'b5', type: 'hotel', name: 'Swiss-Belhotel Rainforest', stars: 4, area: 'كوتا', feats: ['قرب المطار', 'مسبح'], rooms: ['غرفة سوبيريور', 'غرفة ديلوكس'], pos: '95% 45%' }
+    ],
+    acts: [
+      { id: 'ba1', name: 'جولة جزيرة نوسا بينيدا', dur: 'يوم كامل', desc: 'جولة بحرية إلى نوسا بينيدا وشاطئ كيلينغكينغ الشهير.', img: ASSET('assets/index/ocean-img.avif'), pos: 'center 70%' },
+      { id: 'ba2', name: 'مدرجات الأرز في تيغالالانغ', dur: '4 ساعات', desc: 'التجول بين مدرجات الأرز الخضراء في أوبود.', img: ASSET('assets/index/slide-1.avif'), pos: '90% 30%' },
+      { id: 'ba3', name: 'معبد تاناه لوت عند الغروب', dur: '4 ساعات', desc: 'زيارة المعبد البحري ومشاهدة الغروب على المحيط.', img: ASSET('assets/index/ocean-img.avif'), pos: '10% 30%' },
+      { id: 'ba4', name: 'غابة القرود في أوبود', dur: '3 ساعات', desc: 'جولة في غابة القرود المقدسة وسوق أوبود.', img: ASSET('assets/index/slide-2.avif'), pos: '90% 60%' },
+      { id: 'ba5', name: 'شلالات تيغينونغان', dur: '3 ساعات', desc: 'يوم طبيعة بين أجمل شلالات بالي.', img: ASSET('assets/index/slide-3.avif'), pos: 'center 10%' },
+      { id: 'ba6', name: 'رافتينغ في نهر أيونغ', dur: '4 ساعات', desc: 'مغامرة تجديف بين الغابات والوديان.', img: ASSET('assets/index/slide-1.avif'), pos: '60% 90%' },
+      { id: 'ba7', name: 'جلسة سبا بالي التقليدي', dur: 'ساعتان', desc: 'مساج بالي التقليدي للاسترخاء التام.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '10% 30%' },
+      { id: 'ba8', name: 'معبد أولواتو ورقصة الكيتشاك', dur: '4 ساعات', desc: 'معبد على المنحدرات فوق المحيط وعرض رقصة الكيتشاك.', img: ASSET('assets/index/ocean-img.avif'), pos: '30% 50%' }
+    ],
+    program: {
+      first: { t: 'الوصول إلى بالي', s: 'الاستقبال في المطار والنقل إلى الفندق بسيارة خاصة.' },
+      last: { t: 'العودة إلى الوطن', s: 'التوصيل من الفندق إلى المطار.' }
+    },
+    variants: [
+      { id: 'only', title: 'بالي فقط', tag: 'مرونة أكبر', img: ASSET('assets/index/ocean-img.avif'), pos: 'center 70%', bullets: ['طيران + فندق + نقل من وإلى المطار', 'اختر فعاليات بالي بنفسك يوماً بيوم', 'كل الإقامة في بالي'] },
+      { id: 'gili', def: true, title: 'بالي + جزر جيلي', tag: 'مميزة', label: 'جيلي', img: ASSET('assets/index/slide-3.avif'), pos: '15% 85%', bullets: ['3 أيام في جزر جيلي (أيام محددة)', 'باقي الأيام في بالي', 'اختر فعاليات بالي في الأيام المتبقية', 'يشمل القارب السريع والإقامة في جيلي'], fixed: { start: 3, nights: 2, days: [{ t: 'الانتقال إلى جزر جيلي', s: 'قارب سريع والإقامة في جيلي تراوانغان.' }, { t: 'جزر جيلي', s: 'غطس مع السلاحف ويوم على الشاطئ.' }, { t: 'العودة إلى بالي', s: 'قارب سريع والعودة إلى فندقك في بالي.' }] } }
+    ]
+  },
+
+  zanzibar: {
+    name: 'زنجبار',
+    region: 'تنزانيا',
+    img: ASSET('assets/faq/Zanzibar.jpeg'),
+    packages: {
+      eco: { hotel: 'z3', acts: ['za4', 'za3', 'za2', 'za5'] },
+      mid: { hotel: 'z5', acts: ['za1', 'za2', 'za3', 'za7', 'za4'] },
+      lux: { hotel: 'z1', acts: ['za1', 'za7', 'za2', 'za3', 'za4', 'za5', 'za6'] }
+    },
+    suggested: {
+      stays: [
+        { id: 'zs1', type: 'hotel', name: 'Tembo House Hotel', stars: 4, area: 'ستون تاون', feats: ['فطور يومي', 'على البحر مباشرة', 'قرب المدينة القديمة'], rooms: ['غرفة قياسية'] },
+        { id: 'zs2', type: 'villa', name: 'Matemwe Sands Villa', stars: 5, area: 'نونغوي', feats: ['مسبح خاص', 'مطبخ مجهز', 'خصوصية تامة للعائلات'], rooms: ['فيلا شاطئية'] }
+      ],
+      trips: ['za4', 'za1', 'za3', 'za2', 'za7', 'za5', 'za6', 'za8'],
+      rest: { t: 'يوم راحة', s: 'يوم حر للاسترخاء على الشاطئ أو في مكان الإقامة.' }
+    },
+    durations: [6, 7, 8, 10],
+    tripNotes: '',
+    hotels: [
+      { id: 'z1', type: 'resort', name: 'Matemwe Sands Resort', stars: 5, area: 'كيندوا', feats: ['شاطئ خاص', 'بنغلات فاخرة'], rooms: ['بنغل مطل على الحديقة', 'فيلا مطلة على البحر'], pos: 'center 40%' },
+      { id: 'z4', type: 'hotel', name: 'Park Hyatt Zanzibar', stars: 5, area: 'ستون تاون', feats: ['على الواجهة البحرية', 'سبا متكامل'], rooms: ['غرفة مطلة على البحر', 'جناح ملكي'], pos: '80% 30%' },
+      { id: 'z5', type: 'resort', name: 'Riu Palace Zanzibar', stars: 5, area: 'نونغوي', feats: ['شاطئ رملي', 'شامل كلياً All-Inclusive'], rooms: ['جناح جونيور', 'جناح مطل على البحر'], pos: '50% 60%' },
+      { id: 'z2', type: 'resort', name: 'Meliá Zanzibar', stars: 5, area: 'الساحل الشمالي الشرقي', feats: ['رصيف بحري', 'سبا'], rooms: ['غرفة مطلة على البحر', 'فيلا مع مسبح'], pos: '80% 85%' },
+      { id: 'z3', type: 'hotel', name: 'Hotel Verde Zanzibar', stars: 4, area: 'ستون تاون', feats: ['قرب المدينة القديمة', 'مسبح'], rooms: ['غرفة ديلوكس', 'جناح'], pos: '20% 70%' }
+    ],
+    acts: [
+      { id: 'za1', name: 'جزيرة منيمبا والدلافين', dur: '6 ساعات', rating: 4.9, desc: 'سباحة مع الدلافين وغطس في مياه منيمبا الصافية.', img: ASSET('assets/faq/Mauritius.jpeg'), pos: 'center 85%' },
+      { id: 'za2', name: 'رحلة الغروب في زنجبار', dur: '3 ساعات', rating: 4.8, desc: 'جولة بمركب الداو التقليدي وقت الغروب.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '90% 70%' },
+      { id: 'za3', name: 'جولة القرية ومزارع التوابل', dur: '5 ساعات', rating: 4.7, desc: 'زيارة مزارع التوابل والتعرف على بهارات الجزيرة.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '40% 10%' },
+      { id: 'za7', name: 'جزيرة ناكوبيندا الرملية', dur: 'يوم كامل', rating: 4.8, inc: 'lunch', desc: 'يوم على جزيرة رملية بيضاء وسط البحر مع وجبة بحرية فاخرة.', img: ASSET('assets/index/ocean-img.avif'), pos: 'center 100%' },
+      { id: 'za4', name: 'جولة ستون تاون التاريخية', dur: '3 ساعات', rating: 4.6, desc: 'التجول في المدينة الحجرية القديمة ومواقعها التراثية.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '10% 40%' },
+      { id: 'za5', name: 'جزيرة السجن والسلاحف العملاقة', dur: '4 ساعات', rating: 4.7, desc: 'زيارة جزيرة السجن والتعرف على السلاحف المعمرة.', img: ASSET('assets/index/slide-2.avif'), pos: 'center 95%' },
+      { id: 'za6', name: 'غابة جوزاني الاستوائية', dur: '3 ساعات', rating: 4.5, desc: 'مشاهدة قرود الكولوبس الحمراء النادرة في بيئتها الطبيعية.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '60% 20%' },
+      { id: 'za8', name: 'كهف كوزا والبحيرة الكهفية', dur: '3 ساعات', desc: 'سباحة في بحيرة طبيعية بمياه نقية منعشة.', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: '70% 80%' }
+    ],
+    program: {
+      first: { t: 'الوصول إلى زنجبار', s: 'الاستقبال في المطار والنقل إلى الفندق بسيارة خاصة.' },
+      last: { t: 'العودة إلى الوطن', s: 'التوصيل من الفندق إلى المطار.' }
+    },
+    variants: [
+      { id: 'only', title: 'زنجبار فقط', tag: 'مرونة أكبر', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: 'center 75%', bullets: ['طيران + فندق + نقل من وإلى المطار', 'اختر فعاليات زنجبار بنفسك يوماً بيوم', 'لا يوجد سفاري في هذه الباقة'] },
+      { id: 'safari', def: true, title: 'زنجبار + سفاري سيرنغيتي', tag: 'مميزة', label: 'سفاري', img: ASSET('assets/index/canyon-img.avif'), pos: '40% 15%', bullets: ['3 أيام سفاري في سيرنغيتي (أيام محددة)', 'باقي الأيام في زنجبار', 'اختر فعاليات زنجبار في الأيام المتبقية', 'يشمل الطيران الداخلي والإقامة أثناء السفاري'], fixed: { start: 3, nights: 2, days: [{ t: 'السفر إلى سيرنغيتي', s: 'طيران داخلي وبداية السفاري.' }, { t: 'سفاري سيرنغيتي', s: 'يوم كامل لمشاهدة الحياة البرية.' }, { t: 'سفاري سيرنغيتي والعودة', s: 'جولة صباحية ثم العودة إلى زنجبار.' }] } }
+    ]
+  }
+};
+
+/* مستويات الميزانية */
+const TIERS = [
+  { id: 'eco', name: 'اقتصادي', min: 6000, max: 8000 },
+  { id: 'mid', name: 'متوسط', min: 8000, max: 10000 },
+  { id: 'lux', name: 'فاخر', min: 12000, max: 15000 }
+];
+
+const STEP_LABEL = { data: 'البيانات', program: 'البرنامج', suggested: 'المقترح', custom: 'التخصيص', review: 'المراجعة' };
+const SUG = () => D().suggested && S.mode !== 'custom';
+/* مسار التنقل الكامل (مع تفعيل خيار صمم رحلتك بنفسك لاحقاً):
+const FLOW = () => SUG() ? ['data', 'program', 'suggested', 'review']
+  : (D().packages && Object.values(D().packages)[0].plans && S.mode !== 'custom') ? ['data', 'program', 'review'] : ['data', 'program', 'custom', 'review'];
+*/
+const FLOW = () => ['data', 'program', 'suggested', 'review'];
+const CUR = () => FLOW()[S.step];
+const stepTxt = k => `الخطوة ${FLOW().indexOf(k) + 1} من ${FLOW().length}`;
+const PASSPORTS = ['جواز سفر إسرائيلي', 'جواز سفر أردني + لاسيه باسيه', 'جواز سفر آخر'];
+
+/* الحالة */
+const S = {
+  step: 0, dest: 'mauritius', from: '2026-12-12', to: '2026-12-19', flex: false, adults: 2, kids: 0, kidAges: [], pass: '', passOther: '', infoOpen: false, hotelOpen: false,
+  mode: 'suggested', variant: null, durOther: false, tier: '', stay: 'resort', cat: 'all', hotels: [], day: 2, plan: {},
+  sstay: '', rest: false, sday: 1,
+  form: { name: '', code: '+972', phone: '', passport: '', notes: '' }, sent: false, code: ''
+};
+
+/* أدوات */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fmt = new Intl.DateTimeFormat('ar-u-nu-latn', { weekday: 'long', day: 'numeric', month: 'long' });
+const fmtShort = new Intl.DateTimeFormat('ar-u-nu-latn', { day: 'numeric', month: 'long' });
+const d0 = s => new Date(s + 'T00:00:00');
+const nights = () => { const n = Math.round((d0(S.to) - d0(S.from)) / 864e5); return isFinite(n) ? n : 0; };
+const days = () => nights() + 1;
+const dayDate = i => { const d = d0(S.from); d.setDate(d.getDate() + i - 1); return d; };
+const nightsWord = n => n === 1 ? 'ليلة واحدة' : n === 2 ? 'ليلتان' : (n <= 10 ? n + ' ليالٍ' : n + ' ليلة');
+const D = () => DESTS[S.dest];
+const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const shek = n => `<bdi dir="ltr">₪${n.toLocaleString('en-US')}</bdi>`;
+
+const FLAG = {
+  mauritius: '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="4" fill="#EA2839"/><rect y="4" width="24" height="4" fill="#1A206D"/><rect y="8" width="24" height="4" fill="#FFD500"/><rect y="12" width="24" height="4" fill="#00A551"/></svg>',
+  bali: '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="8" fill="#CE1126"/><rect y="8" width="24" height="8" fill="#fff"/><rect width="24" height="16" fill="none" stroke="#ddd" stroke-width=".6"/></svg>',
+  zanzibar: '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#00A3DD"/><path d="M0 0h24L0 16z" fill="#1EB53A"/><path d="M0 16 24 0" stroke="#FCD116" stroke-width="5"/><path d="M0 16 24 0" stroke="#000" stroke-width="3"/></svg>'
+};
+const IL = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff" stroke="#ddd" stroke-width=".6"/><rect y="2" width="24" height="2.2" fill="#0038B8"/><rect y="11.8" width="24" height="2.2" fill="#0038B8"/><path d="M12 5.2l2.6 4.5H9.4zM12 10.8 9.4 6.3h5.2z" fill="none" stroke="#0038B8" stroke-width=".9"/></svg>';
+const JO = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.33" fill="#000"/><rect y="5.33" width="24" height="5.34" fill="#fff"/><rect y="10.67" width="24" height="5.33" fill="#007A3D"/><path d="M0 0l11 8-11 8z" fill="#CE1126"/><circle cx="4" cy="8" r="1.1" fill="#fff"/></svg>';
+const PASS_UI = {};
+const passList = () => PASSPORTS.filter(p => !(D().noPass || []).includes(p));
+const V = () => SUG() ? null : (D().variants || []).find(x => x.id === S.variant) || null;
+const defVariant = () => { const vs = D().variants; return vs ? (vs.find(x => x.def) || vs[0]).id : null; };
+const fixedMap = () => { const v = V(), m = {}; if (v && v.fixed) v.fixed.days.forEach((x, i) => { const d = v.fixed.start + i; if (d < days()) m[d] = x; }); return m; };
+const stayNights = () => Math.max(1, nights() - ((V() && V().fixed) ? V().fixed.nights : 0));
+const T = () => TIERS.find(t => t.id === S.tier) || null;
+const PK = () => (D().packages || {})[S.tier || 'mid'] || null;
+const pkHotels = p => p ? (p.hotels || [p.hotel]) : [];
+const tierHotel = id => { const p = (D().packages || {})[id]; return p ? hotel(pkHotels(p)[0]) : null; };
+const tierOfHotel = hid => { const m = D().packages || {}; const k = Object.keys(m).find(k => pkHotels(m[k]).includes(hid)); return k ? TIERS.find(t => t.id === k) : null; };
+const hName = h => h.placeholder ? 'فندق معتمد من رويال' : h.name;
+
+function applyTier() {
+  if (SUG()) { S.hotels = S.sstay ? [{ id: S.sstay, nights: stayNights(), room: hotel(S.sstay).rooms[0] }] : []; return; }
+  const h = tierHotel(S.tier); if (!h) return; S.stay = h.type; S.hotels = [{ id: h.id, nights: stayNights(), room: h.rooms[0] }];
+}
+function applyPackage() { applyTier(); if (S.mode !== 'custom') S.plan = suggestPlan(); S.hotelOpen = false; }
+const starsTxt = n => '★'.repeat(n);
+function hotelLine(x) {
+  const h = hotel(x.id), t = tierOfHotel(h.id);
+  return `<span class="hl"><b><bdi dir="ltr">${esc(hName(h))}</bdi></b><span class="stars">${starsTxt(h.stars)}</span>${t ? `<span class="lvl">مستوى ${t.name}</span>` : ''}</span>`;
+}
+function tierCards() {
+  return `<div class="tiers" role="radiogroup" aria-label="مستوى الميزانية">${TIERS.map(t => `<button type="button" role="radio" class="tier" data-a="tier" data-v="${t.id}" aria-checked="${S.tier === t.id}"><b>${t.name}</b><span>${range(t)}</span><small class="pp">للفرد</small></button>`).join('')}</div>`;
+}
+const range = t => `<bdi dir="ltr">₪${t.min.toLocaleString('en-US')} – ₪${t.max.toLocaleString('en-US')}</bdi>`;
+const travellers = () => S.adults + S.kids;
+const addDays = k => { const t = d0(S.from); t.setDate(t.getDate() + k); return iso(t); };
+const setDays = n => { const t = d0(S.from); t.setDate(t.getDate() + n - 1); S.to = iso(t); };
+function snapDays() { if (S.durOther) return; const ds = D().durations; if (ds && !ds.includes(days())) setDays(ds[Math.floor(ds.length / 2)]); }
+const hotel = id => D().hotels.find(h => h.id === id) || ((D().suggested || {}).stays || []).find(h => h.id === id);
+
+const restDay = () => S.rest ? Math.floor((days() + 1) / 2) : 0;
+const sugCount = () => Math.max(0, days() - 2 - (S.rest ? 1 : 0));
+const act = id => D().acts.find(a => a.id === id);
+
+const ICON = {
+  check: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>',
+  plus: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+  star: '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>',
+  clock: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+  car: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16V11l2-5h10l2 5v5M5 16h14M5 16v2M19 16v2M8 13h.01M16 13h.01"/></svg>',
+  food: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 3v8M5 3v4a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/></svg>',
+  pin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+  bed: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V7M21 18v-5a3 3 0 0 0-3-3h-8v6M3 15h18M7 12.5a1.8 1.8 0 1 0 0-.01"/></svg>',
+  wallet: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3"/><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M16 13.5h.01"/></svg>',
+  passport: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8.5 16.5h7"/></svg>',
+  cal: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg>',
+  calSm: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+  clockLg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>',
+  users: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.3 3-5 6-5s5.4 1.7 6 5"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.4c1.7.6 2.7 2.2 3 4.6"/></svg>',
+  plusC: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>',
+  lock: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>',
+  pinSm: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+  info: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>',
+  heart: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+  heartOn: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'
+};
+
+function suggestPlan() {
+  if (SUG()) {
+    const L = D().suggested.trips, r = restDay(), p = {}; let i = 0;
+    for (let d = 2; d < days(); d++) { if (d === r) { p[d] = []; continue; } p[d] = L[i] ? [L[i]] : []; i++; }
+    return p;
+  }
+  if (PK() && PK().plans && PK().plans[days()]) {
+    const p = {}, m = PK().plans[days()];
+    for (let d = 2; d < days(); d++) p[d] = m[d - 2] ? [m[d - 2]] : [];
+    return p;
+  }
+  const p = {}, list = D().acts.map(a => a.id); let ai = 0;
+  for (let d = 2; d < days(); d++) { const k = d - 2; p[d] = (k % 3 === 2 || ai >= list.length) ? [] : [list[ai++]]; }
+  return p;
+}
+
+const TYPES = { hotel: 'فندق', resort: 'منتجع', combo: 'فندق + منتجع', villa: 'فيلا' };
+function setStay(v) {
+  S.stay = v;
+  const n = stayNights();
+  if (v === 'combo') {
+    const allHotels = D().hotels.filter(h => !h.placeholder);
+    const curHotel = S.hotels.find(x => hotel(x.id).type === 'hotel');
+    const curResort = S.hotels.find(x => hotel(x.id).type === 'resort');
+    const hObj = curHotel ? hotel(curHotel.id) : (allHotels.find(h => h.type === 'hotel') || allHotels[0]);
+    const rObj = curResort ? hotel(curResort.id) : (allHotels.find(h => h.type === 'resort') || allHotels.find(h => h.id !== hObj.id) || allHotels[0]);
+    
+    let hNights = Math.max(1, Math.min(n - 1, Math.round(n * 0.35) || 2));
+    let rNights = n - hNights;
+    if (S.hotels.length === 2 && S.hotels[0].nights + S.hotels[1].nights === n) {
+      hNights = S.hotels[0].nights;
+      rNights = S.hotels[1].nights;
+    }
+    S.hotels = [
+      { id: hObj.id, nights: hNights, room: (curHotel && curHotel.room) || hObj.rooms[0] },
+      { id: rObj.id, nights: rNights, room: (curResort && curResort.room) || rObj.rooms[0] }
+    ];
+  } else {
+    const curSame = S.hotels.find(x => hotel(x.id).type === v);
+    const chosen = curSame ? hotel(curSame.id) : (D().hotels.find(h => h.type === v && !h.placeholder) || D().hotels[0]);
+    S.hotels = [{ id: chosen.id, nights: n, room: (curSame && curSame.room) || chosen.rooms[0] }];
+  }
+}
+
+function resetDest() {
+  S.hotels = []; S.variant = defVariant(); S.mode = 'suggested';
+  if (!S.tier) S.tier = 'eco';
+  if (D().suggested && (!S.sstay || !D().suggested.stays.some(h => h.id === S.sstay))) {
+    S.sstay = D().suggested.stays[0].id;
+  }
+  setStay(S.stay); if (SUG()) applyTier();
+  S.plan = S.mode === 'suggested' ? suggestPlan() : {}; S.day = 2; S.cat = 'all';
+}
+
+function syncNights() {
+  const n = stayNights();
+  if (S.stay === 'combo' && S.hotels.length === 2) {
+    const curSum = S.hotels[0].nights + S.hotels[1].nights;
+    if (curSum !== n) {
+      const diff = n - curSum;
+      if (S.hotels[1].nights + diff >= 1) {
+        S.hotels[1].nights += diff;
+      } else {
+        const hNights = Math.max(1, Math.min(n - 1, Math.round(n * 0.35) || 2));
+        S.hotels[0].nights = hNights;
+        S.hotels[1].nights = n - hNights;
+      }
+    }
+  } else if (S.hotels[0]) {
+    S.hotels[0].nights = n;
+  }
+  if (S.mode !== 'custom') S.plan = suggestPlan();
+  else Object.keys(S.plan).forEach(k => { if (+k < 2 || +k >= days()) delete S.plan[k]; });
+  if (S.day >= days()) S.day = 2;
+}
+
+const actCount = () => Object.values(S.plan).reduce((t, a) => t + a.length, 0);
+
+/* الخطوة 1: البيانات */
+function vData() {
+  const ds = D().durations, fixedDur = ds && !S.durOther;
+  let k = 0; const H = (t, ic) => `<div class="sh"><h3><span class="num">${++k}</span>${t}</h3>${ic ? `<span class="shic">${ic}</span>` : ''}</div>`;
+  const dest = `<section class="fs">${H('الوجهة', '')}
+      <div class="dgrid">${Object.entries(DESTS).map(([key, d]) => `
+        <button type="button" class="dcard" data-a="dest" data-v="${key}" aria-pressed="${S.dest === key}">
+          <span class="ph"><img src="${d.img}" alt="${d.name}"><span class="ok">${ICON.check}</span></span>
+          <span class="nm">${FLAG[key] || ''}${d.name}</span></button>`).join('')}</div>
+    </section>`;
+  const dur = ds ? `<section class="fs">${H('عدد الأيام', ICON.clockLg)}
+      <div class="dchips" role="radiogroup" aria-label="عدد الأيام">${ds.map(x => `<button type="button" role="radio" class="dchip" data-a="dur" data-v="${x}" aria-checked="${!S.durOther && days() === x}">${x} أيام</button>`).join('')}${D().allowOther ? `<button type="button" role="radio" class="dchip" data-a="durother" aria-checked="${!!S.durOther}">أخرى</button>` : ''}</div>
+    </section>` : '';
+  const dates = `<section class="fs">${H('موعد السفر المقترح', ICON.cal)}
+      <div class="drange">
+        <label class="dbox" for="from">${ICON.calSm}<span class="lb">من</span><input type="date" id="from" value="${S.from}" min="2026-11-01" aria-label="تاريخ الذهاب"></label>
+        <span class="arr" aria-hidden="true">⟷</span>
+        <label class="dbox" for="to">${ICON.calSm}<span class="lb">إلى</span><input type="date" id="to" value="${S.to}" min="${fixedDur ? addDays(ds[0] - 1) : addDays(1)}" ${fixedDur ? `max="${addDays(ds[ds.length - 1] - 1)}"` : ''} aria-label="تاريخ العودة"></label>
+      </div>
+      <label class="check" for="flex"><input type="checkbox" id="flex" ${S.flex ? 'checked' : ''}> أنا مرن في موعد السفر</label>
+    </section>`;
+  const tier = `<section class="fs" id="tier-block">${H('مستوى الميزانية التقديرية للفرد', ICON.wallet)}
+      ${tierCards()}
+    </section>`;
+  const people = `<section class="fs">${H('عدد المسافرين', ICON.users)}
+      <div class="people">
+        ${pRow('البالغون', 'فوق 12 سنة', 'adults', 1)}
+        ${pRow('الأطفال', 'من 0 إلى 12 سنة', 'kids', 0)}
+        ${S.kids ? `<div class="kages" id="kages"><p class="sub">اكتب عمر كل طفل (من 0 إلى 12)</p><div class="kgrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:6px;">${S.kidAges.map((a, i) => `<label class="field" for="kid-${i}">عمر الطفل ${i + 1}<input id="kid-${i}" data-kid="${i}" type="number" inputmode="numeric" min="0" max="12" step="1" placeholder="مثال: 5" value="${a}"></label>`).join('')}</div></div>` : ''}
+      </div>
+    </section>`;
+  const pass = `<section class="fs" id="pass-block">${H('جواز السفر', ICON.passport)}
+      <div class="pchips" role="radiogroup" aria-label="جواز السفر">${passList().map(p => `<button type="button" role="radio" class="pchip" data-a="pass" data-v="${p}" aria-checked="${S.pass === p}">${PASS_UI[p].ic}<span>${PASS_UI[p].t}</span></button>`).join('')}</div>
+      ${S.pass === PASSPORTS[2] ? `<label class="field fade" for="fpassother" id="po-wrap">ما هو نوع الجواز؟<input id="fpassother" value="${esc(S.passOther)}" placeholder="مثال: جواز سفر أوروبي / أمريكي" autocomplete="off"></label>` : ''}
+    </section>`;
+
+  const order = [dest, dur, dates, tier, people, pass].filter(Boolean);
+  return `<div class="step-head"><span class="eyebrow">${stepTxt('data')}</span><h2>بيانات الرحلة</h2></div>
+  <div class="dform">${order.join('')}</div>`;
+}
+
+function pRow(t, s, key, min) {
+  return `<div class="prow"><span><b>${t}</b><small>${s}</small></span>
+  <div class="stepper">
+    <button type="button" class="rnd plus" data-a="inc" data-v="${key}" aria-label="زيادة ${t}">+</button>
+    <output aria-live="polite">${S[key]}</output>
+    <button type="button" class="rnd" data-a="dec" data-v="${key}" aria-label="إنقاص ${t}" ${S[key] <= min ? 'disabled' : ''}>−</button>
+  </div></div>`;
+}
+
+/* الخطوة 2: البرنامج */
+function modeToggle() {
+  return `<div class="opts" role="radiogroup" aria-label="طريقة بناء الرحلة">
+    <button type="button" class="opt" role="radio" data-a="mode" data-v="suggested" aria-checked="true">
+      <span class="opt-text">
+        <span class="opt-title-row"><b class="opt-title">البرنامج المقترح</b><span class="tag-easiest">الأسهل</span></span>
+        <span class="opt-desc">فندق ورحلات جاهزة حسب المستوى وعدد الأيام.</span>
+      </span>
+      <span class="opt-radio"></span>
+    </button>
+    <!-- تم إيقاف خيار صمّم رحلتك بنفسك مؤقتاً
+    <button type="button" class="opt" role="radio" data-a="mode" data-v="custom" aria-checked="${S.mode === 'custom'}">
+      <span class="opt-text">
+        <span class="opt-title-row"><b class="opt-title">صمّم رحلتك بنفسك</b></span>
+        <span class="opt-desc">اختار الفندق والرحلات بنفسك يوماً بيوم.</span>
+      </span>
+      <span class="opt-radio"></span>
+    </button>
+    -->
+  </div>`;
+}
+
+function vProgram() {
+  const noteText = 'اضغط على «البرنامج المقترح» لتشوف تفاصيله: الميزانية، عدد الأيام، الإقامة والرحلات يوم بيوم.';
+
+  return `<div class="step-head">
+    <span class="eyebrow">${stepTxt('program')} · ${D().name}</span>
+    <h2>برنامج رحلتك</h2>
+    <p class="sub">اختار البرنامج المقترح الجاهز لمتابعة تفاصيل رحلتك.</p>
+  </div>
+  <div class="stack" style="display:flex;flex-direction:column;gap:16px;">
+    ${modeToggle()}
+    <div class="note-program">
+      <span>${noteText}</span>
+      <span class="note-ic">${ICON.info}</span>
+    </div>
+  </div>`;
+}
+
+function vStay() {
+  const n = stayNights(), multi = S.stay === 'combo';
+  const sel = id => S.hotels.find(x => x.id === id);
+  const of = t => D().hotels.filter(h => h.type === t && !h.placeholder && (S.cat === 'all' || h.stars === +S.cat));
+  const empty = '<p class="sub">لا توجد خيارات في هذه الفئة حالياً.</p>';
+  const list = l => l.length ? `<div class="hlist">${l.map(card).join('')}</div>` : empty;
+  const sum = S.hotels.reduce((t, x) => t + x.nights, 0);
+  const current = S.hotels.map(x => {
+    const h = hotel(x.id);
+    return `<div class="hcur">${hotelLine(x)}<small>${TYPES[h.type]} · ${h.area} · ${nightsWord(x.nights)}</small>
+      <label class="field" for="room-${h.id}">نوع الغرفة<select id="room-${h.id}" data-room="${h.id}">${h.rooms.map(r => `<option ${r === x.room ? 'selected' : ''}>${r}</option>`).join('')}</select></label></div>`;
+  }).join('');
+
+  return `<section class="card block" id="cust-hotel">
+      <div class="row" style="display:flex;justify-content:space-between;align-items:center;"><h3>مكان الإقامة والفندق</h3><button type="button" class="link" data-a="hotelpanel" aria-expanded="${S.hotelOpen}">${S.hotelOpen ? 'إغلاق' : 'تغيير الفندق'}</button></div>
+      ${current}
+      ${S.hotelOpen ? `<div class="hpanel fade">
+        <div class="seg" role="radiogroup" aria-label="نمط الإقامة">${['hotel', 'resort', 'combo'].map(t => `<button type="button" role="radio" data-a="stay" data-v="${t}" aria-checked="${S.stay === t}">${TYPES[t]}</button>`).join('')}</div>
+        <div class="chips" role="group" aria-label="تقييم الفندق">${[['all', 'الكل'], ['5', '5★'], ['4', '4★']].map(([v, t]) => `<button type="button" class="chip" data-a="cat" data-v="${v}" aria-pressed="${S.cat === v}">${t}</button>`).join('')}</div>
+        ${multi && S.hotels.length === 2 && sum !== n ? `<div class="note warn">${ICON.info}<span>مجموع الليالي يجب أن يكون ${n}. حالياً ${sum}.</span></div>` : ''}
+        ${multi ? `<h3 class="sub2">الفندق</h3>${list(of('hotel'))}<h3 class="sub2">المنتجع</h3>${list(of('resort'))}` : list(of(S.stay))}
+      </div>` : ''}
+    </section>`;
+
+  function card(h) {
+    const s = sel(h.id), t = tierOfHotel(h.id);
+    return `<div class="hrow ${s ? 'sel' : ''}">
+      <span class="hi"><span class="hl"><b><bdi dir="ltr">${esc(h.name)}</bdi></b><span class="stars">${starsTxt(h.stars)}</span>${t ? `<span class="lvl">مستوى ${t.name}</span>` : ''}</span><small>${TYPES[h.type]} · ${h.area}</small></span>
+      ${s && multi ? `<span class="stepper sm">
+            <button type="button" class="rnd plus" data-a="hn+" data-v="${h.id}" aria-label="زيادة ليالي ${esc(h.name)}" ${s.nights >= n - 1 ? 'disabled' : ''}>+</button>
+            <output>${s.nights}</output>
+            <button type="button" class="rnd" data-a="hn-" data-v="${h.id}" aria-label="إنقاص ليالي ${esc(h.name)}" ${s.nights <= 1 ? 'disabled' : ''}>−</button></span>` : ''}
+      <button type="button" class="btn ${s ? 'on' : ''}" data-a="hotel" data-v="${h.id}">${s ? '✓ مختار' : 'اختيار'}</button>
+    </div>`;
+  }
+}
+
+function vCustom() {
+  const last = days(), fxm = fixedMap();
+  const avail = []; for (let i = 1; i <= last; i++) if (!fxm[i]) avail.push(i);
+  if (!avail.includes(S.day)) S.day = avail.find(i => i > 1 && i < last) || avail[0];
+  const d = S.day, fixed = d === 1 || d === last;
+  const tabs = avail.map(i => `<button type="button" class="day ${(S.plan[i] || []).length ? 'has' : ''}" role="tab" data-a="day" data-v="${i}" aria-selected="${i === d}"><b class="dl">اليوم ${i}</b><small>${i === 1 ? 'الوصول' : i === last ? 'المغادرة' : (S.plan[i] || []).length ? (S.plan[i].length + ' مختار') : 'متاح'}</small></button>`).join('');
+  const chosen = S.plan[d] || [];
+  const fxNote = V() && V().fixed ? ` (الأيام غير ${V().label === 'سفاري' ? 'السفاري' : V().label} فقط)` : '';
+
+  const custDur = D().durations ? `<section class="card block" id="cust-dur">
+    <div class="sh"><h3><span class="num">1</span>عدد الأيام</h3><span class="shic">${ICON.clockLg}</span></div>
+    <div class="dchips" role="radiogroup" aria-label="عدد الأيام">${D().durations.map(x => `<button type="button" role="radio" class="dchip" data-a="dur" data-v="${x}" aria-checked="${days() === x}"><b>${x} أيام</b><small>${nightsWord(x - 1)}</small></button>`).join('')}</div>
+  </section>` : '';
+
+  return `<div class="step-head"><span class="eyebrow">${stepTxt('custom')} · ${D().name}</span><h2>صمّم رحلتك بنفسك</h2><p class="sub">اختار الفندق اللي بناسبك والرحلات لكل يوم.</p></div>
+  <div class="stack" style="display:flex;flex-direction:column;gap:16px;">
+    ${vStay()}
+    ${custDur}
+    <section class="card block" id="cust-acts">
+      <div class="row"><span><h3>رحلات وفعاليات ${D().name}</h3><p class="sub">اختر الرحلات للأيام المتاحة${fxNote}</p></span></div>
+      <div class="days" role="tablist" aria-label="أيام الرحلة">${tabs}</div>
+      <section class="block" style="margin-top:14px;">
+        <div class="row" style="display:flex;justify-content:space-between;align-items:center;"><span><h3>اليوم ${d} · ${fmt.format(dayDate(d))}</h3>${fixed ? '' : '<p class="sub">رحلة واحدة لكل يوم. اختيار رحلة ثانية يستبدل الأولى.</p>'}</span>
+          ${fixed ? '' : `<span class="tag">${chosen.length ? chosen.length + ' مختار' : 'يوم حر'}</span>`}</div>
+        ${fixed ? `<div class="card fixed-day" style="padding:16px;background:var(--surface-2);border-radius:14px;border:1px solid var(--line);margin-top:12px;">${D().program ? (d === 1 ? D().program.first.t + ': ' + D().program.first.s : D().program.last.t + ': ' + D().program.last.s) : (d === 1 ? 'يوم الوصول: الاستقبال بالمطار والنقل إلى الفندق.' : 'يوم المغادرة: النقل من الفندق إلى المطار.')}</div>` :
+        `<div class="agrid">${D().acts.map(a => {
+          const on = chosen.includes(a.id);
+          const elsewhere = Object.entries(S.plan).find(([k, v]) => +k !== d && v.includes(a.id));
+          return `<button type="button" class="acard ${on ? 'on' : ''}" data-a="act" data-v="${a.id}" aria-pressed="${on}" aria-label="${on ? 'إزالة' : 'إضافة'} ${esc(a.name)}">
+            <span class="ph"><img src="${a.img}" alt="" style="object-position:${a.pos}"><span class="heart">${on ? ICON.heartOn : ICON.heart}</span>
+            ${elsewhere ? `<span class="flag muted">اليوم ${elsewhere[0]}</span>` : ''}</span>
+            <span class="b"><b>${a.name}</b>
+              ${a.rating ? `<span class="rate">${ICON.star}${a.rating}</span>` : ''}
+            </span></button>`;
+        }).join('')}</div>
+        ${chosen.length ? `<button type="button" class="free" data-a="free">اجعله يوماً حراً بدون فعاليات</button>` : ''}`}
+      </section>
+    </section>
+  </div>`;
+}
+
+function sugDur() {
+  const ds = D().durations;
+  if (S.durOther || !ds.includes(days())) {
+    S.durOther = false;
+    setDays(ds[0]);
+    syncNights();
+    applyTier();
+  }
+}
+
+function vSuggested() {
+  sugDur();
+  const G = D().suggested, n = days(), cnt = sugCount(), r = restDay(), P = D().program;
+  let k = 0; const H = (t, ic, extra) => `<div class="sh"><h3><span class="num">${++k}</span>${t}</h3>${extra || (ic ? `<span class="shic">${ic}</span>` : '')}</div>`;
+
+  const tier = `<section class="fs" id="sg-tier">${H('مستوى الميزانية للفرد', ICON.wallet)}
+      ${tierCards()}
+      <p class="sub">السعر تقديري للفرد الواحد، ويشمل الإقامة والرحلات والتنقلات.</p>
+    </section>`;
+  const dur = `<section class="fs">${H('عدد الأيام', ICON.clockLg)}
+      <div class="dchips" role="radiogroup" aria-label="عدد الأيام">${D().durations.map(x => `<button type="button" role="radio" class="dchip" data-a="dur" data-v="${x}" aria-checked="${n === x}">${x} أيام<small>${x - 2 - (S.rest ? 1 : 0)} رحلات</small></button>`).join('')}</div>
+    </section>`;
+  const stays = `<section class="fs" id="sg-stay">${H('مكان الإقامة المختار', ICON.bed)}
+      <div class="stays" role="radiogroup" aria-label="الإقامة">${G.stays.map(h => `
+        <button type="button" role="radio" class="stay" data-a="sstay" data-v="${h.id}" aria-checked="${S.sstay === h.id}">
+          <span class="radio"></span>
+          <span class="sbody">
+            <span class="shead"><b class="sname"><bdi dir="ltr">${esc(h.name)}</bdi></b><span class="stype">${TYPES[h.type]}</span></span>
+            <span class="sline"><span class="srate"><span class="stars">${starsTxt(h.stars)}</span><span>${h.stars} نجوم</span></span><small class="sarea">${ICON.pinSm}${h.area} · ${nightsWord(n - 1)}</small></span>
+            <span class="achips">${h.feats.map(f => `<span>${f}</span>`).join('')}</span>
+          </span>
+        </button>`).join('')}</div>
+    </section>`;
+
+  const fxRow = (d, kind, label, info) => `<div class="sgtrip fxd ${kind}">
+      <span class="dbig">${d}</span>
+      <span class="tb"><b>${info.t} <span class="fxtag2">${label}</span></b><small>${info.s}</small></span>
+      <span class="tday">اليوم ${d}</span></div>`;
+
+  const list = []; let i = 0;
+  for (let d = 1; d <= n; d++) {
+    if (d === 1) { list.push(fxRow(d, 'arr', 'يوم استقبال', P.first)); continue; }
+    if (d === n) { list.push(fxRow(d, 'dep', 'يوم توديع', P.last)); continue; }
+    if (d === r) { list.push(fxRow(d, 'rest', 'يوم راحة', G.rest)); continue; }
+    const a = act(G.trips[i++]); if (!a) continue;
+    list.push(`<div class="sgtrip">
+          <span class="tph"><img src="${a.img}" alt="${a.name}" style="object-position:${a.pos || 'center'}"></span>
+          <span class="tb"><b>${a.name}</b></span>
+          <span class="tday">اليوم ${d}</span></div>`);
+  }
+
+  const extra = G.trips.slice(cnt).map((id, j) => {
+    const a = act(id);
+    if (!a) return '';
+    const need = (D().durations || []).find(x => x - 2 - (S.rest ? 1 : 0) >= cnt + j + 1) || 0;
+    return `<div class="sgtrip off">
+          <span class="tph"><img src="${a.img}" alt="${a.name}" style="object-position:${a.pos || 'center'}"></span>
+          <span class="tb"><b>${a.name}</b></span>
+          <span class="tday">${need ? `مع ${need} أيام` : 'غير مشمولة'}</span></div>`;
+  }).join('');
+
+  const trips = `<section class="fs" id="sg-trips">${H(`جدول الرحلات والفعاليات (${cnt})`, ICON.pin,
+    `<button type="button" class="restbtn" data-a="rest" aria-pressed="${S.rest}">${S.rest ? ICON.check + 'يوم راحة' : ICON.plus + 'يوم راحة'}</button>`)}
+      <p class="sub">برنامج متوازن لمدة ${n} أيام: استقبال وتوديع خاص، وبينهما ${cnt} جولات سياحية${S.rest ? ' ويوم راحة' : ''}.</p>
+      <div class="sgtrips">${list.join('')}</div>
+      ${extra ? `<p class="sub2 muted">رحلات بتنضاف إذا زدت الأيام</p><div class="sgtrips">${extra}</div>` : ''}
+      <div class="note" style="margin-top:14px;">${ICON.lock}<span>الرحلات موزّعة تلقائياً على الأيام لأنه برنامج مقترح. ${S.rest ? 'يوم الراحة بياخد مكان رحلة وحدة.' : 'بدك يوم راحة؟ اضغط «يوم راحة» وبنشيل رحلة وحدة.'}</span></div>
+    </section>`;
+
+  const price = `<div class="pprice sgprice"><span><small>مستوى التكلفة التقديرية للفرد</small><b>${T() ? range(T()) : 'اختر مستوى الميزانية'}</b></span><span class="tag">${n} أيام · ${cnt} رحلات</span></div>`;
+  return `<div class="step-head"><span class="eyebrow">${stepTxt('suggested')} · ${D().name}</span><h2>تفاصيل البرنامج المقترح</h2><p class="sub">برنامج متكامل صُمم خصيصاً لوجهة ${D().name}. اختر مستوى الإقامة والمدة المناسبة لك.</p></div>
+  <div class="dform">${tier}${dur}${stays}${trips}${price}</div>`;
+}
+
+/* الخطوة 3: المراجعة والإرسال */
+function vReview() {
+  const f = S.form, plan = [];
+  const fxm = fixedMap();
+  for (let i = 2; i < days(); i++) {
+    if (fxm[i]) { plan.push(`<li><b>اليوم ${i}</b><span>${fxm[i].t} · ${V().label}</span></li>`); continue; }
+    const a = (S.plan[i] || []).map(id => act(id).name);
+    plan.push(`<li><b>اليوم ${i}</b><span>${a.length ? a.join('، ') : 'يوم راحة واستجمام'}</span></li>`);
+  }
+  const ppl = `${S.adults} بالغين${S.kids ? ` + ${S.kids} أطفال (${S.kidAges.join('، ')} سنوات)` : ''}`;
+  const progStep = FLOW().indexOf('suggested') > -1 ? FLOW().indexOf('suggested') : (FLOW().indexOf('custom') > -1 ? FLOW().indexOf('custom') : 1);
+  return `<div class="step-head"><span class="eyebrow">${stepTxt('review')}</span><h2>مراجعة وتأكيد طلبك</h2></div>
+  <div class="stack">
+    <section class="card sum">
+      <div class="cover"><img src="${D().img}" alt="${D().name}"><b>${D().name} · ${nightsWord(nights())}</b></div>
+      <div class="kv">
+        <div><span><small>التواريخ وعدد المسافرين</small><b>${fmtShort.format(d0(S.from))} – ${fmtShort.format(d0(S.to))} · ${ppl}</b><small>${S.pass === PASSPORTS[2] && S.passOther.trim() ? esc(S.passOther.trim()) : S.pass}${S.flex ? ' · التواريخ مرنة' : ''}</small></span><button type="button" class="link" data-a="go" data-v="0">تعديل</button></div>
+        ${T() ? `<div><span><small>مستوى الميزانية للفرد</small><b>${T().name} · ${range(T())} للفرد</b></span><button type="button" class="link" data-a="go" data-v="0">تعديل</button></div>` : ''}
+        <div><span><small>الإقامة والفندق</small>${S.hotels.map(x => `<span class="hl"><b><bdi dir="ltr">${esc(hName(hotel(x.id)))}</bdi></b> · ${hotel(x.id).stars} نجوم</span><small>${nightsWord(x.nights)}</small>`).join('')}</span><button type="button" class="link" data-a="go" data-v="${progStep}">تعديل</button></div>
+      </div>
+    </section>
+
+    <section class="card block">
+      <div class="row"><h3>الرحلات والجولات المجدولة (${actCount()})</h3><button type="button" class="link" data-a="go" data-v="${progStep}">تعديل</button></div>
+      <ul class="plist">${plan.join('')}</ul>
+    </section>
+
+    <form class="card block" id="contact" novalidate>
+      <h3>بيانات التواصل لتأكيد الرحلة</h3>
+      <label class="field" for="fname" id="fn-wrap">الاسم الكامل<input id="fname" name="name" autocomplete="name" value="${esc(f.name)}" placeholder="مثال: أحمد محمد"></label>
+      <div class="field" id="fp-wrap">
+        <label for="fphone">رقم الهاتف / الواتساب</label>
+        <div class="phone">
+          <input id="fphone" type="tel" inputmode="tel" autocomplete="tel-national" value="${esc(f.phone)}" placeholder="05X-XXXXXXX">
+          <select id="fcode" aria-label="مفتاح الدولة">${['+972', '+970', '+962', '+971', '+966'].map(c => `<option ${c === f.code ? 'selected' : ''}>${c}</option>`).join('')}</select>
+        </div>
+      </div>
+      <label class="field" for="fnotes">ملاحظات أو طلبات خاصة (اختياري)<textarea id="fnotes" placeholder="هل ترغب في إضافة طيران، ترقية غرفة، رحلة شهر عسل، أو خدمات VIP معينة؟">${esc(f.notes)}</textarea></label>
+    </form>
+
+    <div class="note">${ICON.check}<span>فريق رويال للسياحة والسفر سيراجع برنامجك ويتأكد من توفر الفنادق والطيران، وسيتواصل معك خلال ساعات بالسعر النهائي المؤكد.</span></div>
+  </div>`;
+}
+
+/* الخطوة 4: تم الإرسال */
+function vDone() {
+  const phoneText = esc(S.form.code + ' ' + S.form.phone);
+  return `<div class="done fade">
+    <span class="ok"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#08101a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span>
+    <h2>تم إرسال طلبك</h2>
+    <p class="sub" style="max-width:42ch;font-size:15px;line-height:1.6;color:#94a3b8;margin:0;">رحلتك إلى ${D().name} صارت عند فريق رويال. رح نتواصل معك على <bdi dir="ltr">${phoneText}</bdi> خلال 24 ساعة.</p>
+    <div class="done-card">
+      <span class="sub">رقم الطلب</span>
+      <span class="code">${S.code}</span>
+    </div>
+    <button type="button" class="btn-restart" data-a="restart">صمّم رحلة جديدة</button>
+  </div>`;
+}
+
+/* العرض والتحديث */
+function render() {
+  $('#heroImg').src = D().img;
+  $('#rail').innerHTML = FLOW().map(k => STEP_LABEL[k]).map((t, i) => `<li><button type="button" data-a="go" data-v="${i}" class="${S.sent ? 'done' : i < S.step ? 'done' : i === S.step ? 'now' : ''}" ${S.sent || i > S.step ? 'disabled' : ''} ${i === S.step && !S.sent ? 'aria-current="step"' : ''}><span class="bar-seg"></span>${t}</button></li>`).join('');
+  const v = $('#view');
+  v.innerHTML = S.sent ? vDone() : ({ data: vData, program: vProgram, suggested: vSuggested, custom: vCustom, review: vReview })[CUR()]();
+  v.firstElementChild.classList.add('fade');
+  $('#actions').hidden = S.sent;
+  $('#backBtn').style.visibility = S.step === 0 ? 'hidden' : 'visible';
+  $('#nextLabel').textContent = CUR() === 'review' ? 'إرسال الطلب' : 'التالي: ' + STEP_LABEL[FLOW()[S.step + 1]];
+  $('#infoMain').textContent = `${D().name} · ${nights() > 0 ? nightsWord(nights()) : '—'}${T() ? ' · ' + T().name : ''}`;
+  $('#infoSub').textContent = S.step >= 1 ? `${S.hotels.map(x => hName(hotel(x.id))).join(' + ')} · ${actCount()} رحلات` : `${S.adults + S.kids} مسافرين`;
+  bindInputs();
+}
+
+function bindInputs() {
+  const on = (id, ev, fn) => { const el = document.getElementById(id); if (el) el.addEventListener(ev, fn); };
+  on('from', 'change', e => { const keep = days(); S.from = e.target.value; if (D().durations && !S.durOther) setDays(keep); syncNights(); render(); });
+  on('to', 'change', e => { S.to = e.target.value; syncNights(); render(); });
+  on('flex', 'change', e => { S.flex = e.target.checked; });
+  on('fpassother', 'input', e => { S.passOther = e.target.value; const w = document.getElementById('po-wrap'); if (w) w.classList.remove('bad'); });
+  on('fname', 'input', e => { S.form.name = e.target.value; $('#fn-wrap').classList.remove('bad'); });
+  on('fphone', 'input', e => { S.form.phone = e.target.value; $('#fp-wrap').classList.remove('bad'); });
+  on('fcode', 'change', e => S.form.code = e.target.value);
+  on('fnotes', 'input', e => S.form.notes = e.target.value);
+  document.querySelectorAll('[data-kid]').forEach(el => el.addEventListener('input', e => { S.kidAges[+el.dataset.kid] = e.target.value.replace(/[^0-9]/g, '').slice(0, 2); el.closest('.field').classList.remove('bad'); }));
+  document.querySelectorAll('[data-room]').forEach(s => s.addEventListener('change', e => { const h = S.hotels.find(x => x.id === s.dataset.room); if (h) h.room = e.target.value; }));
+  on('contact', 'submit', e => { e.preventDefault(); next(); });
+}
+
+/* التحقق والتنقل */
+function problem() {
+  if (CUR() === 'data' && nights() < 1) return 'اختر تاريخ عودة بعد تاريخ الذهاب.';
+  if (CUR() === 'data' && !S.pass) return 'اختر نوع جواز السفر.';
+  if (CUR() === 'data' && !S.tier) return 'اختر مستوى الميزانية التقديرية.';
+  if (CUR() === 'data' && S.kids) {
+    let bad = false;
+    S.kidAges.forEach((a, i) => { const n = a === '' ? NaN : +a; if (!(n >= 0 && n <= 12)) { bad = true; const el = document.getElementById('kid-' + i); if (el) el.closest('.field').classList.add('bad'); } });
+    if (bad) return 'اكتب عمر كل طفل (من 0 إلى 12 سنة).';
+  }
+  if (CUR() === 'data' && S.pass === PASSPORTS[2] && S.passOther.trim().length < 2) {
+    const w = document.getElementById('po-wrap'); if (w) w.classList.add('bad'); return 'اكتب نوع جواز السفر.';
+  }
+  if (CUR() === 'program') {
+    return '';
+  }
+  if (CUR() === 'suggested') {
+    if (!S.tier) return 'اختر مستوى الميزانية.';
+    if (!S.sstay && D().suggested) return 'اختر مكان الإقامة المناسب لك.';
+  }
+  if (CUR() === 'custom') {
+    if (S.stay === 'combo') {
+      if (S.hotels.length < 2) return 'اختر فندق ومنتجع لتوزيع الإقامة.';
+      if (S.hotels.reduce((t, x) => t + x.nights, 0) !== stayNights()) return 'وزّع الليالي بحيث يكون مجموعها ' + stayNights() + '.';
+    }
+    if (!S.hotels.length) return 'اختر فندقاً.';
+  }
+  if (CUR() === 'review') {
+    let bad = false;
+    if (S.form.name.trim().length < 3) { $('#fn-wrap').classList.add('bad'); bad = true; }
+    if (S.form.phone.replace(/\D/g, '').length < 7) { $('#fp-wrap').classList.add('bad'); bad = true; }
+    if (bad) return 'اكتب اسمك الكريم ورقم الواتساب لنتمكن من التواصل معك.';
+  }
+  return '';
+}
+
+function flash(msg) {
+  let n = document.getElementById('msg');
+  if (!n) { n = document.createElement('div'); n.id = 'msg'; n.className = 'note warn'; n.setAttribute('role', 'alert'); $('#view').prepend(n); }
+  n.innerHTML = ICON.check + '<span>' + esc(msg) + '</span>';
+  n.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const b = $('#nextBtn');
+  b.classList.remove('fade');
+  void b.offsetWidth;
+  b.classList.add('fade');
+}
+
+function next() {
+  const p = problem(); if (p) return flash(p);
+  if (CUR() === 'review') {
+    S.sent = true;
+    S.code = 'RY-' + String(Math.floor(1000 + Math.random() * 9000));
+  } else {
+    S.step++;
+  }
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+$('#nextBtn').addEventListener('click', next);
+$('#backBtn').addEventListener('click', () => { if (S.step > 0) { S.step--; render(); window.scrollTo({ top: 0 }); } });
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-a]'); if (!b || b.disabled) return;
+  const a = b.dataset.a, v = b.dataset.v;
+  if (a === 'dest') { if (S.dest !== v) { S.dest = v; S.durOther = false; if (!passList().includes(S.pass)) S.pass = ''; snapDays(); resetDest(); applyPackage(); } }
+  else if (a === 'dur') { S.durOther = false; setDays(+v); syncNights(); }
+  else if (a === 'durother') { S.durOther = true; }
+  else if (a === 'tier') { if (S.tier !== v) { S.tier = v; applyPackage(); } }
+  else if (a === 'pass') { S.pass = v; if (v === PASSPORTS[2]) setTimeout(() => { const i = document.getElementById('fpassother'); if (i) i.focus(); }, 0); }
+  else if (a === 'inc') { S[v] = Math.min(S[v] + 1, 9); if (v === 'kids') S.kidAges.push(''); }
+  else if (a === 'dec') { S[v] = Math.max(S[v] - 1, v === 'adults' ? 1 : 0); if (v === 'kids') S.kidAges = S.kidAges.slice(0, S.kids); }
+  else if (a === 'mode') {
+    if (S.mode !== v) {
+      S.mode = v;
+      if (v === 'suggested') {
+        applyPackage();
+      } else {
+        S.plan = {};
+        const h = tierHotel(S.tier || 'eco') || D().hotels[0];
+        if (h) {
+          S.stay = h.type;
+          S.hotels = [{ id: h.id, nights: stayNights(), room: h.rooms[0] }];
+        }
+      }
+    }
+  }
+  else if (a === 'hotelpanel') { S.hotelOpen = !S.hotelOpen; }
+  else if (a === 'stay') { if (v === 'combo' && stayNights() < 2) return flash('الفندق + المنتجع يتطلبان ليلتين على الأقل.'); setStay(v); }
+  else if (a === 'cat') { S.cat = v; }
+  else if (a === 'hotel') {
+    const h = hotel(v);
+    if (S.stay !== 'combo') {
+      if (S.hotels[0].id !== v) S.hotels = [{ id: v, nights: stayNights(), room: h.rooms[0] }];
+    } else {
+      const idx = S.hotels.findIndex(x => hotel(x.id).type === h.type);
+      if (idx > -1) {
+        if (S.hotels[idx].id !== v) S.hotels[idx] = { id: v, nights: S.hotels[idx].nights, room: h.rooms[0] };
+      } else {
+        const otherIdx = S.hotels.length > 0 ? 0 : -1;
+        const otherNights = otherIdx > -1 ? S.hotels[otherIdx].nights : Math.max(1, Math.floor(stayNights() / 2));
+        const remNights = Math.max(1, stayNights() - otherNights);
+        S.hotels.push({ id: v, nights: remNights, room: h.rooms[0] });
+      }
+    }
+  }
+  else if (a === 'hn+' || a === 'hn-') {
+    const x = S.hotels.find(h => h.id === v), o = S.hotels.find(h => h.id !== v), d = a === 'hn+' ? 1 : -1;
+    if (o && x.nights + d >= 1 && o.nights - d >= 1) { x.nights += d; o.nights -= d; }
+  }
+  else if (a === 'day') { S.day = +v; }
+  else if (a === 'act') {
+    if ((S.plan[S.day] || [])[0] === v) {
+      S.plan[S.day] = [];
+    } else {
+      Object.keys(S.plan).forEach(k => { S.plan[k] = (S.plan[k] || []).filter(x => x !== v); });
+      S.plan[S.day] = [v];
+    }
+  }
+  else if (a === 'free') { S.plan[S.day] = []; }
+  else if (a === 'sstay') { S.sstay = v; applyTier(); }
+  else if (a === 'rest') { S.rest = !S.rest; S.plan = suggestPlan(); }
+  else if (a === 'go') { S.step = +v; window.scrollTo({ top: 0 }); S.hotelOpen = false; }
+  else if (a === 'goto') { const i = FLOW().indexOf(v); S.step = i > -1 ? i : 1; window.scrollTo({ top: 0 }); S.hotelOpen = false; }
+  else if (a === 'restart') { Object.assign(S, { step: 0, sent: false, mode: 'suggested', stay: 'resort', sstay: '', rest: false, sday: 1 }); resetDest(); applyPackage(); window.scrollTo({ top: 0 }); }
+  render();
+});
+
+Object.assign(PASS_UI, {
+  [PASSPORTS[0]]: { t: 'إسرائيلي', ic: IL },
+  [PASSPORTS[1]]: { t: 'أردني + لاسيه باسيه', ic: JO },
+  [PASSPORTS[2]]: { t: 'آخر', ic: ICON.plusC }
+});
+
+snapDays();
+resetDest();
+render();
+</script>
+
+</body>
+</html>
+

@@ -148,13 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const customTripCard = document.getElementById('custom-trip');
   const destContainer = document.getElementById('destinations');
 
-  const heroPrimaryBtn = document.getElementById('heroPrimaryBtn');
-  if (heroPrimaryBtn && customTripCard) {
-    heroPrimaryBtn.addEventListener('click', () => {
-      customTripCard.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
   const heroSecondaryBtn = document.getElementById('heroSecondaryBtn');
   if (heroSecondaryBtn && destContainer) {
     heroSecondaryBtn.addEventListener('click', () => {
@@ -162,27 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const openPlannerBtn = document.getElementById('openPlannerBtn');
-  if (openPlannerBtn && customTripCard) {
-    openPlannerBtn.addEventListener('click', () => {
-      customTripCard.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  const openPlannerBtnMobile = document.getElementById('openPlannerBtnMobile');
-  if (openPlannerBtnMobile && customTripCard) {
-    openPlannerBtnMobile.addEventListener('click', () => {
-      if (navMenu) navMenu.classList.remove('open');
-      customTripCard.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  // زر كرت "صمّم رحلتك الخاصة" (خامل حالياً ولا يحول على الواتساب لحين استكمال تصميمه للديمو)
-  const openTripModalBtn = document.getElementById('openTripModalBtn');
-  if (openTripModalBtn) {
-    openTripModalBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      // لا يقوم بأي تحويل لحين اعتماد وتصميم باقي التجربة للديمو
+  // Card 1 Navigation to Custom Trip Planner (صمّم رحلتك الخاصة)
+  if (customTripCard) {
+    customTripCard.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) {
+        window.location.href = 'custom-trip.html';
+      }
     });
   }
 
