@@ -259,9 +259,39 @@
     .note-program { background: rgba(35, 28, 14, 0.75); border: 1px solid rgba(223, 180, 110, 0.35); border-radius: 14px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; gap: 14px; color: #f8fafc; font-size: 13.5px; line-height: 1.5; }
     .note-program .note-ic { color: var(--gold); display: flex; align-items: center; flex-shrink: 0; }
 
-    /* Custom Mode: Days Tabs & Activity Cards */
-    .days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
-    .days::-webkit-scrollbar { display: none; }
+    /* Trip Type Variants (Custom Mode) */
+    .vopts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; width: 100%; }
+    @media (max-width: 600px) {
+      .vopts { grid-template-columns: 1fr; }
+    }
+    .vopt { display: flex; flex-direction: column; background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-align: right; padding: 0; cursor: pointer; transition: all 0.25s ease; width: 100%; height: 100%; box-sizing: border-box; }
+    .vopt:hover { border-color: rgba(223, 180, 110, 0.45); transform: translateY(-2px); }
+    .vopt[aria-checked="true"] { border: 1.5px solid var(--gold); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35); }
+    .vopt .ph { position: relative; width: 100%; height: 130px; overflow: hidden; }
+    .vopt .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .vopt .ribbon { position: absolute; top: 10px; right: 10px; font-size: 11px; font-weight: 700; background: var(--gold); color: #0b141e; padding: 3px 12px; border-radius: 999px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); }
+    .vopt .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .vopt .head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .vopt .head b { font-family: var(--f-display); font-size: 15.5px; font-weight: 800; color: #ffffff; line-height: 1.35; }
+    .vopt .radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.4); flex-shrink: 0; display: grid; place-items: center; margin: 0; transition: all 0.2s; }
+    .vopt[aria-checked="true"] .radio { border-color: #ffffff; }
+    .vopt[aria-checked="true"] .radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #ffffff; }
+    .vopt ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; color: #cbd5e1; }
+    .vopt li { display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; }
+    .vopt li::before { content: "✓"; color: var(--gold); font-weight: 800; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+
+    /* Custom Mode: Days Tabs & Navigation */
+    .days-nav-wrap { position: relative; display: flex; align-items: center; gap: 8px; width: 100%; }
+    .days-nav-wrap .days { flex: 1; min-width: 0; }
+    .days-arrow { width: 36px; height: 50px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); color: #cbd5e1; display: grid; place-items: center; flex-shrink: 0; cursor: pointer; transition: all 0.2s ease; }
+    .days-arrow:hover { border-color: var(--gold); color: var(--gold); background: #152438; }
+    .days-arrow:active { transform: scale(0.95); }
+    .days-arrow svg { stroke: currentColor; }
+    .days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: rgba(223, 180, 110, 0.45) rgba(255, 255, 255, 0.05); }
+    .days::-webkit-scrollbar { height: 6px; }
+    .days::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 999px; }
+    .days::-webkit-scrollbar-thumb { background: rgba(223, 180, 110, 0.4); border-radius: 999px; transition: background 0.2s; }
+    .days::-webkit-scrollbar-thumb:hover { background: var(--gold); }
     .day { min-width: 78px; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); color: #ffffff; display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; cursor: pointer; transition: all 0.2s; }
     .day .dl { font-size: 13px; font-weight: 800; }
     .day small { font-size: 11px; color: var(--muted); }
@@ -542,8 +572,42 @@ const DESTS = {
       last: { t: 'العودة إلى الوطن', s: 'التوصيل من الفندق إلى المطار.' }
     },
     variants: [
-      { id: 'only', title: 'بالي فقط', tag: 'مرونة أكبر', img: ASSET('assets/index/ocean-img.avif'), pos: 'center 70%', bullets: ['طيران + فندق + نقل من وإلى المطار', 'اختر فعاليات بالي بنفسك يوماً بيوم', 'كل الإقامة في بالي'] },
-      { id: 'gili', def: true, title: 'بالي + جزر جيلي', tag: 'مميزة', label: 'جيلي', img: ASSET('assets/index/slide-3.avif'), pos: '15% 85%', bullets: ['3 أيام في جزر جيلي (أيام محددة)', 'باقي الأيام في بالي', 'اختر فعاليات بالي في الأيام المتبقية', 'يشمل القارب السريع والإقامة في جيلي'], fixed: { start: 3, nights: 2, days: [{ t: 'الانتقال إلى جزر جيلي', s: 'قارب سريع والإقامة في جيلي تراوانغان.' }, { t: 'جزر جيلي', s: 'غطس مع السلاحف ويوم على الشاطئ.' }, { t: 'العودة إلى بالي', s: 'قارب سريع والعودة إلى فندقك في بالي.' }] } }
+      {
+        id: 'only',
+        title: 'بالي فقط',
+        tag: 'مرونة أكبر',
+        img: ASSET('assets/index/ocean-img.avif'),
+        pos: 'center 70%',
+        bullets: [
+          'طيران + فندق + نقل من وإلى المطار',
+          'اختر فعاليات بالي بنفسك يوماً بيوم',
+          'كل الإقامة في بالي'
+        ]
+      },
+      {
+        id: 'gili',
+        def: true,
+        title: 'بالي + جزر جيلي',
+        tag: 'مميزة',
+        label: 'جيلي',
+        img: ASSET('assets/index/ocean-img.avif'),
+        pos: '15% 85%',
+        bullets: [
+          '3 أيام في جزر جيلي (أيام محددة)',
+          'باقي الأيام في بالي',
+          'اختر فعاليات بالي في الأيام المتبقية',
+          'يشمل القارب السريع والإقامة في جيلي'
+        ],
+        fixed: {
+          start: 3,
+          nights: 2,
+          days: [
+            { t: 'الانتقال إلى جزر جيلي', s: 'قارب سريع والإقامة في جيلي تراوانغان.' },
+            { t: 'جزر جيلي', s: 'غطس مع السلاحف ويوم على الشاطئ.' },
+            { t: 'العودة إلى بالي', s: 'قارب سريع والعودة إلى فندقك في بالي.' }
+          ]
+        }
+      }
     ]
   },
 
@@ -588,8 +652,42 @@ const DESTS = {
       last: { t: 'العودة إلى الوطن', s: 'التوصيل من الفندق إلى المطار.' }
     },
     variants: [
-      { id: 'only', title: 'زنجبار فقط', tag: 'مرونة أكبر', img: ASSET('assets/faq/Zanzibar.jpeg'), pos: 'center 75%', bullets: ['طيران + فندق + نقل من وإلى المطار', 'اختر فعاليات زنجبار بنفسك يوماً بيوم', 'لا يوجد سفاري في هذه الباقة'] },
-      { id: 'safari', def: true, title: 'زنجبار + سفاري سيرنغيتي', tag: 'مميزة', label: 'سفاري', img: ASSET('assets/index/canyon-img.avif'), pos: '40% 15%', bullets: ['3 أيام سفاري في سيرنغيتي (أيام محددة)', 'باقي الأيام في زنجبار', 'اختر فعاليات زنجبار في الأيام المتبقية', 'يشمل الطيران الداخلي والإقامة أثناء السفاري'], fixed: { start: 3, nights: 2, days: [{ t: 'السفر إلى سيرنغيتي', s: 'طيران داخلي وبداية السفاري.' }, { t: 'سفاري سيرنغيتي', s: 'يوم كامل لمشاهدة الحياة البرية.' }, { t: 'سفاري سيرنغيتي والعودة', s: 'جولة صباحية ثم العودة إلى زنجبار.' }] } }
+      {
+        id: 'only',
+        title: 'زنجبار فقط',
+        tag: 'مرونة أكبر',
+        img: ASSET('assets/faq/Zanzibar.jpeg'),
+        pos: 'center 75%',
+        bullets: [
+          'طيران + فندق + نقل من وإلى المطار',
+          'اختر فعاليات زنجبار بنفسك يوماً بيوم',
+          'لا يوجد سفاري في هذه الباقة'
+        ]
+      },
+      {
+        id: 'safari',
+        def: true,
+        title: 'زنجبار + سفاري سيرنغيتي',
+        tag: 'مميزة',
+        label: 'سفاري',
+        img: ASSET('assets/faq/Zanzibar.jpeg'),
+        pos: '40% 15%',
+        bullets: [
+          '3 أيام سفاري في سيرنغيتي (أيام محددة)',
+          'باقي الأيام في زنجبار',
+          'اختر فعاليات زنجبار في الأيام المتبقية',
+          'يشمل الطيران الداخلي والإقامة أثناء السفاري'
+        ],
+        fixed: {
+          start: 3,
+          nights: 2,
+          days: [
+            { t: 'السفر إلى سيرنغيتي', s: 'طيران داخلي وبداية السفاري.' },
+            { t: 'سفاري سيرنغيتي', s: 'يوم كامل لمشاهدة الحياة البرية.' },
+            { t: 'سفاري سيرنغيتي والعودة', s: 'جولة صباحية ثم العودة إلى زنجبار.' }
+          ]
+        }
+      }
     ]
   }
 };
@@ -603,11 +701,8 @@ const TIERS = [
 
 const STEP_LABEL = { data: 'البيانات', program: 'البرنامج', suggested: 'المقترح', custom: 'التخصيص', review: 'المراجعة' };
 const SUG = () => D().suggested && S.mode !== 'custom';
-/* مسار التنقل الكامل (مع تفعيل خيار صمم رحلتك بنفسك لاحقاً):
 const FLOW = () => SUG() ? ['data', 'program', 'suggested', 'review']
   : (D().packages && Object.values(D().packages)[0].plans && S.mode !== 'custom') ? ['data', 'program', 'review'] : ['data', 'program', 'custom', 'review'];
-*/
-const FLOW = () => ['data', 'program', 'suggested', 'review'];
 const CUR = () => FLOW()[S.step];
 const stepTxt = k => `الخطوة ${FLOW().indexOf(k) + 1} من ${FLOW().length}`;
 const PASSPORTS = ['جواز سفر إسرائيلي', 'جواز سفر أردني + لاسيه باسيه', 'جواز سفر آخر'];
@@ -773,8 +868,16 @@ function syncNights() {
     S.hotels[0].nights = n;
   }
   if (S.mode !== 'custom') S.plan = suggestPlan();
-  else Object.keys(S.plan).forEach(k => { if (+k < 2 || +k >= days()) delete S.plan[k]; });
-  if (S.day >= days()) S.day = 2;
+  else {
+    const fxm = fixedMap();
+    Object.keys(S.plan).forEach(k => {
+      if (+k < 2 || +k >= days() || fxm[k]) delete S.plan[k];
+    });
+  }
+  if (S.day >= days() || fixedMap()[S.day]) {
+    const avail = []; for (let i = 1; i <= days(); i++) if (!fixedMap()[i]) avail.push(i);
+    S.day = avail.find(i => i > 1 && i < days()) || avail[0] || 2;
+  }
 }
 
 const actCount = () => Object.values(S.plan).reduce((t, a) => t + a.length, 0);
@@ -832,14 +935,13 @@ function pRow(t, s, key, min) {
 /* الخطوة 2: البرنامج */
 function modeToggle() {
   return `<div class="opts" role="radiogroup" aria-label="طريقة بناء الرحلة">
-    <button type="button" class="opt" role="radio" data-a="mode" data-v="suggested" aria-checked="true">
+    <button type="button" class="opt" role="radio" data-a="mode" data-v="suggested" aria-checked="${S.mode !== 'custom'}">
       <span class="opt-text">
         <span class="opt-title-row"><b class="opt-title">البرنامج المقترح</b><span class="tag-easiest">الأسهل</span></span>
         <span class="opt-desc">فندق ورحلات جاهزة حسب المستوى وعدد الأيام.</span>
       </span>
       <span class="opt-radio"></span>
     </button>
-    <!-- تم إيقاف خيار صمّم رحلتك بنفسك مؤقتاً
     <button type="button" class="opt" role="radio" data-a="mode" data-v="custom" aria-checked="${S.mode === 'custom'}">
       <span class="opt-text">
         <span class="opt-title-row"><b class="opt-title">صمّم رحلتك بنفسك</b></span>
@@ -847,17 +949,19 @@ function modeToggle() {
       </span>
       <span class="opt-radio"></span>
     </button>
-    -->
   </div>`;
 }
 
 function vProgram() {
-  const noteText = 'اضغط على «البرنامج المقترح» لتشوف تفاصيله: الميزانية، عدد الأيام، الإقامة والرحلات يوم بيوم.';
+  const isCustom = S.mode === 'custom';
+  const noteText = isCustom
+    ? 'اضغط على «صمّم رحلتك بنفسك» لتخصيص الفندق والفعاليات بنفسك يوماً بيوم.'
+    : 'اضغط على «البرنامج المقترح» لتشوف تفاصيله: الميزانية، عدد الأيام، الإقامة والرحلات يوم بيوم.';
 
   return `<div class="step-head">
     <span class="eyebrow">${stepTxt('program')} · ${D().name}</span>
     <h2>برنامج رحلتك</h2>
-    <p class="sub">اختار البرنامج المقترح الجاهز لمتابعة تفاصيل رحلتك.</p>
+    <p class="sub">اختار البرنامج المقترح الجاهز، أو صمّم رحلتك بنفسك.</p>
   </div>
   <div class="stack" style="display:flex;flex-direction:column;gap:16px;">
     ${modeToggle()}
@@ -914,6 +1018,20 @@ function vCustom() {
   const chosen = S.plan[d] || [];
   const fxNote = V() && V().fixed ? ` (الأيام غير ${V().label === 'سفاري' ? 'السفاري' : V().label} فقط)` : '';
 
+  const vVariant = () => D().variants ? `
+    <section class="block" id="cust-variant">
+      <div class="row" style="margin-bottom: 2px;"><h3>نوع الرحلة</h3></div>
+      <div class="vopts" role="radiogroup" aria-label="نوع الرحلة">${D().variants.map(x => `
+        <button type="button" class="vopt" role="radio" data-a="variant" data-v="${x.id}" aria-checked="${S.variant === x.id}">
+          <span class="ph"><img src="${x.img}" alt="" style="object-position:${x.pos}"><span class="ribbon">${x.tag}</span></span>
+          <span class="body">
+            <span class="head"><b>${nightsWord(nights())} · ${x.title}</b><span class="radio"></span></span>
+            <ul>${x.bullets.map(t => `<li>${t}</li>`).join('')}</ul>
+          </span>
+        </button>`).join('')}
+      </div>
+    </section>` : '';
+
   const custDur = D().durations ? `<section class="card block" id="cust-dur">
     <div class="sh"><h3><span class="num">1</span>عدد الأيام</h3><span class="shic">${ICON.clockLg}</span></div>
     <div class="dchips" role="radiogroup" aria-label="عدد الأيام">${D().durations.map(x => `<button type="button" role="radio" class="dchip" data-a="dur" data-v="${x}" aria-checked="${days() === x}"><b>${x} أيام</b><small>${nightsWord(x - 1)}</small></button>`).join('')}</div>
@@ -921,11 +1039,20 @@ function vCustom() {
 
   return `<div class="step-head"><span class="eyebrow">${stepTxt('custom')} · ${D().name}</span><h2>صمّم رحلتك بنفسك</h2><p class="sub">اختار الفندق اللي بناسبك والرحلات لكل يوم.</p></div>
   <div class="stack" style="display:flex;flex-direction:column;gap:16px;">
+    ${vVariant()}
     ${vStay()}
     ${custDur}
     <section class="card block" id="cust-acts">
       <div class="row"><span><h3>رحلات وفعاليات ${D().name}</h3><p class="sub">اختر الرحلات للأيام المتاحة${fxNote}</p></span></div>
-      <div class="days" role="tablist" aria-label="أيام الرحلة">${tabs}</div>
+      <div class="days-nav-wrap">
+        <button type="button" class="days-arrow" data-a="days-scroll" data-v="right" aria-label="السابق">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div class="days" role="tablist" aria-label="أيام الرحلة" id="daysList">${tabs}</div>
+        <button type="button" class="days-arrow" data-a="days-scroll" data-v="left" aria-label="التالي">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+      </div>
       <section class="block" style="margin-top:14px;">
         <div class="row" style="display:flex;justify-content:space-between;align-items:center;"><span><h3>اليوم ${d} · ${fmt.format(dayDate(d))}</h3>${fixed ? '' : '<p class="sub">رحلة واحدة لكل يوم. اختيار رحلة ثانية يستبدل الأولى.</p>'}</span>
           ${fixed ? '' : `<span class="tag">${chosen.length ? chosen.length + ' مختار' : 'يوم حر'}</span>`}</div>
@@ -1034,7 +1161,7 @@ function vReview() {
   return `<div class="step-head"><span class="eyebrow">${stepTxt('review')}</span><h2>مراجعة وتأكيد طلبك</h2></div>
   <div class="stack">
     <section class="card sum">
-      <div class="cover"><img src="${D().img}" alt="${D().name}"><b>${D().name} · ${nightsWord(nights())}</b></div>
+      <div class="cover"><img src="${D().img}" alt="${D().name}"><b>${D().name} · ${nightsWord(nights())}${V() ? ' · ' + V().title : ''}</b></div>
       <div class="kv">
         <div><span><small>التواريخ وعدد المسافرين</small><b>${fmtShort.format(d0(S.from))} – ${fmtShort.format(d0(S.to))} · ${ppl}</b><small>${S.pass === PASSPORTS[2] && S.passOther.trim() ? esc(S.passOther.trim()) : S.pass}${S.flex ? ' · التواريخ مرنة' : ''}</small></span><button type="button" class="link" data-a="go" data-v="0">تعديل</button></div>
         ${T() ? `<div><span><small>مستوى الميزانية للفرد</small><b>${T().name} · ${range(T())} للفرد</b></span><button type="button" class="link" data-a="go" data-v="0">تعديل</button></div>` : ''}
@@ -1092,6 +1219,10 @@ function render() {
   $('#infoMain').textContent = `${D().name} · ${nights() > 0 ? nightsWord(nights()) : '—'}${T() ? ' · ' + T().name : ''}`;
   $('#infoSub').textContent = S.step >= 1 ? `${S.hotels.map(x => hName(hotel(x.id))).join(' + ')} · ${actCount()} رحلات` : `${S.adults + S.kids} مسافرين`;
   bindInputs();
+  const activeDay = document.querySelector('.day[aria-selected="true"]');
+  if (activeDay) {
+    try { activeDay.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); } catch (e) {}
+  }
 }
 
 function bindInputs() {
@@ -1177,6 +1308,7 @@ document.addEventListener('click', e => {
   if (a === 'dest') { if (S.dest !== v) { S.dest = v; S.durOther = false; if (!passList().includes(S.pass)) S.pass = ''; snapDays(); resetDest(); applyPackage(); } }
   else if (a === 'dur') { S.durOther = false; setDays(+v); syncNights(); }
   else if (a === 'durother') { S.durOther = true; }
+  else if (a === 'variant') { if (S.variant !== v) { S.variant = v; syncNights(); } }
   else if (a === 'tier') { if (S.tier !== v) { S.tier = v; applyPackage(); } }
   else if (a === 'pass') { S.pass = v; if (v === PASSPORTS[2]) setTimeout(() => { const i = document.getElementById('fpassother'); if (i) i.focus(); }, 0); }
   else if (a === 'inc') { S[v] = Math.min(S[v] + 1, 9); if (v === 'kids') S.kidAges.push(''); }
@@ -1220,6 +1352,14 @@ document.addEventListener('click', e => {
     if (o && x.nights + d >= 1 && o.nights - d >= 1) { x.nights += d; o.nights -= d; }
   }
   else if (a === 'day') { S.day = +v; }
+  else if (a === 'days-scroll') {
+    const list = document.getElementById('daysList');
+    if (list) {
+      const dir = v === 'left' ? -180 : 180;
+      list.scrollBy({ left: dir, behavior: 'smooth' });
+    }
+    return;
+  }
   else if (a === 'act') {
     if ((S.plan[S.day] || [])[0] === v) {
       S.plan[S.day] = [];
